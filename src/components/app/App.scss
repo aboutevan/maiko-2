@@ -1,0 +1,14 @@
+@font-face {
+  font-family: coves-light;
+  src: url('../../assets/fonts/coves-light.woff');
+}
+
+@font-face {
+  font-family: coves-bold;
+  src: url('../../assets/fonts/coves-bold.woff');
+}
+
+body {
+  font-family: coves-bold;
+  overflow: hidden;
+}
