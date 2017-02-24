@@ -21,25 +21,37 @@ module.exports = {
     // ],
     output: {
         filename: "bundle-[hash].js",
-        path: path.join(__dirname, "dist"),
-        // publicPath: "/"
+        path: path.join(__dirname, "dist", "static"),
+        publicPath: "/"
     },
     performance: {hints: false},
     module: {
-        loaders: [
+        rules: [
             {
-                test: /.jsx?$/,
-                loaders: "babel-loader",
-                include: path.join(__dirname, "src"),
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.json?$/,
-                loader: "json"
+              test: /.jsx?$/,
+              loaders: "babel-loader",
+              include: path.join(__dirname, "src"),
+              exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
-                loader: "style-loader!css-loader?sourceMap!sass-loader?sourceMap",
+                use: [
+                  {
+                    loader: "style-loader"
+                  },
+                  {
+                    loader: "css-loader",
+                    options: {
+                      sourceMap: true
+                    }
+                  },
+                  {
+                    loader: "sass-loader",
+                    options: {
+                      sourceMap: true
+                    }
+                  }
+                ],
                 // loader: ExtractTextPlugin.extract({
                 //     fallbackLoader: "style-loader",
                 //     loader: "css-loader!sass-loader"
@@ -81,7 +93,7 @@ module.exports = {
             template: "src/index.tpl.html",
             inject: "body"
         }),
-        // new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
@@ -89,6 +101,8 @@ module.exports = {
         })
     ],
     devServer: {
+      // contentBase: "./dist",
+      stats: { colors: true},
       host: 'localhost',
       port: '3000',
       hot: true,
