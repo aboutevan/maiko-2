@@ -13,7 +13,7 @@ module.exports = function (env) {
   };
 
   if(env === 'development') {
-    entry.app.unshift('webpack-hot-middleware/client')
+    // entry.app.unshift('webpack-hot-middleware/client')
   } else {
     // any production settings
   }

@@ -1,2 +1,2 @@
-//helper modules
-export {default as REST} from './rest';
+// helper modules
+export REST from './rest';

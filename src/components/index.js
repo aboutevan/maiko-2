@@ -1,6 +1,6 @@
-//exporting all components for named import
-export {default as App}from './app/App.jsx'
-export {default as Content} from'./content/Content.jsx'
-export {default as Header} from'./header/Header.jsx'
-export {default as Root} from './root/Root.jsx'
-export {default as SlideOut} from'./slideOut/SlideOut.jsx'
+// exporting all components for named import
+export { default as App } from './presentation/app/App';
+export { default as Content } from './content/Content';
+export { default as Header } from './header/Header';
+export { default as Root } from './root/Root';
+export { default as SlideOut } from './presentation/slideOut/SlideOut';

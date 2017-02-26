@@ -7,33 +7,35 @@ import './Content.scss';
 @connect(state => ({ sidebarVisible: state.sidebar }))
 export default class Content extends Component {
 
-    static propTypes = {
-        state: PropTypes.object,
+  static propTypes = {
+    sidebarVisible: PropTypes.objectOf(React.PropTypes.any),
+    dispatch: PropTypes.func,
+  };
+
+  static defaultProps = {
+    sidebarVisible: {},
+    dispatch: () => {},
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarVisible: props.sidebarVisible,
+      className: '',
     };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            sidebarVisible: props.sidebarVisible,
-            className: ''
-        };
-    }
+  componentWillReceiveProps() {
+    REST.get('/').then(response => this.props.dispatch(restTest(response)));
+    this.setState({
+      sidebarVisible: !this.state.sidebarVisible,
+      className: this.state.sidebarVisible ? '' : 'sidebar-visible',
+    });
+  }
 
-    componentWillReceiveProps(props) {
-
-        REST.get('/').then((response) => this.props.dispatch(restTest(response)));
-
-        this.setState({
-            sidebarVisible: !this.state.sidebarVisible,
-            className: this.state.sidebarVisible ? '' : 'sidebar-visible'
-        });
-    }
-
-    render() {
-        return (
-            <main className={this.state.className}>
-                {this.props.children}
-            </main>
-        );
-    }
+  render() {
+    return (
+      <main className={this.state.className} />
+    );
+  }
 }

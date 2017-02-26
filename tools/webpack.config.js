@@ -13,18 +13,22 @@ const config = {
   output: settings.output(env),
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
     alias: {
-      modernizr$: path.resolve(__dirname, '../.modernizrrc')
+      modernizr$: path.resolve(__dirname, '../.modernizrrc'),
+      actions: path.resolve(__dirname, "../src/actions"),
+      components: path.resolve(__dirname, "../src/components"),
+      presentation: path.resolve(__dirname, "../src/components/presentation"),
+      container: path.resolve(__dirname, "../src/components/container"),
+      config: path.resolve(__dirname, "../src/config"),
+      helpers: path.resolve(__dirname, "../src/helpers"),
     }
   },
 
   plugins: settings.plugins(env),
 
   module: {
-    preLoaders: settings.preloaders(env),
-    loaders: settings.loaders(env),
-    postLoaders: settings.postloaders(env)
+    rules: settings.loaders(env),
   },
 
   // postcss: function () {
@@ -32,10 +36,12 @@ const config = {
   //    require('autoprefixer')
   //  ]
   // },
-
-  eslint: {
-    configFile: path.join(__dirname, '../.eslintrc'),
-    emitWarning: true
+  devServer: {
+    // contentBase: path.resolve(__dirname, '../src/'),
+    stats: { colors: true},
+    host: 'localhost',
+    port: '3000',
+    hot: true,
   }
 }
 
