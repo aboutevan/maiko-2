@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { toggleSidebar } from 'actions';
-import ThreeLineMenu from '../presentation/threeLineMenu/ThreeLineMenu';
+import { ThreeLineMenu } from 'presentation';
 
 // import './Header.scss';
 

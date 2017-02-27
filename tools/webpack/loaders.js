@@ -51,14 +51,15 @@ module.exports = function (env) {
     loaders.push(
       {
         test: /\.jsx?$/,
+        enforce: 'pre',
         use: [{
           loader: 'eslint-loader',
           options: {
+            configFile: path.join(__dirname, '../../.eslintrc.js'),
             emitWarning: true
           }
         }],
-        include: path.join(__dirname, '../../src'),
-        exclude: path.join(__dirname, '../../src', 'data')
+        include: path.join(__dirname, '../../src')
       },
       {
         test: /\.(scss|sass)$/,

@@ -19,7 +19,6 @@ const config = {
       actions: path.resolve(__dirname, "../src/actions"),
       components: path.resolve(__dirname, "../src/components"),
       presentation: path.resolve(__dirname, "../src/components/presentation"),
-      container: path.resolve(__dirname, "../src/components/container"),
       config: path.resolve(__dirname, "../src/config"),
       helpers: path.resolve(__dirname, "../src/helpers"),
     }
