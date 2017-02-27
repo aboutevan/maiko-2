@@ -20,7 +20,9 @@ module.exports = function(config) {
       //run through webpack and sourcemap plugin
       './tools/webpack.test.js': ['webpack']
     },
-    files: ['./tools/webpack.test.js'],
+    files: [
+      'node_modules/babel-polyfill/dist/polyfill.js',
+      './tools/webpack.test.js'],
     reporters: ['dots'],
     webpack: webpackConfig,
     client: {
