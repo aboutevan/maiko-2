@@ -1,3 +1,3 @@
-export { default as App } from './app/App';
-export { default as SlideOut } from './slideOut/SlideOut';
-export { default as ThreeLineMenu } from './threeLineMenu/ThreeLineMenu';
+export App from './app/App';
+export SlideOut from './slideOut/SlideOut';
+export ThreeLineMenu from './threeLineMenu/ThreeLineMenu';

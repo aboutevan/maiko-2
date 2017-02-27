@@ -1,4 +1,4 @@
 // exporting all components for named import
-export { default as Content } from './content/Content';
-export { default as Header } from './header/Header';
-export { default as Root } from './root/Root';
+export Content from './content/Content';
+export Header from './header/Header';
+export Root from './root/Root';

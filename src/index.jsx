@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
-import Root from './components/root/Root'; // Don't fucking change this
+import Root from 'components/root/Root'; // Don't fucking change this
 import configureStore from './store/configureStore';
 
 require('./components/header/Header.scss');
@@ -20,7 +20,6 @@ render(
 );
 
 if (module.hot) {
-  console.log('bitch');
   /**
   * source: https://github.com/nicksp/redux-webpack-es6-boilerplate
   * Warning from React Router, caused by react-hot-loader.
