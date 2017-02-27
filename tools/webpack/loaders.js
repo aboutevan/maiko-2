@@ -9,7 +9,8 @@ module.exports = function (env) {
     {
       test: /.jsx?$/,
       loaders: "babel-loader",
-      include: path.join(__dirname, "../../src"),
+      // this was prohibiting test
+      // include: path.join(__dirname, "../../src"),
       exclude: path.join(__dirname, '../../node_modules')
     },
     {

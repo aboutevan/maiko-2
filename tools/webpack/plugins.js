@@ -16,7 +16,7 @@ module.exports = function (env) {
         BROWSER: true
       }
     }),
-    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
+    // new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
     new HtmlWebpackPlugin({
         filename: "index.html",
         template: path.resolve(__dirname, "../../src/index.tpl.html"),
