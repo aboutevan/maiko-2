@@ -4,7 +4,7 @@ const webpackConfig = require('./tools/webpack.config.js')
 // overwrite and extend existing webpack config
 // instead of writing duplicate below
 // webpackConfig.entry = {};
-// webpackConfig.devtool = 'inline-source-map';
+webpackConfig.devtool = 'inline-source-map';
 webpackConfig.externals = {
   'cheerio': 'window',
   'react/addons': true,
@@ -18,12 +18,12 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
     preprocessors: {
       //run through webpack and sourcemap plugin
-      './tools/webpack.test.js': ['webpack']
+      './tools/webpack.test.js': ['webpack', 'sourcemap']
     },
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
       './tools/webpack.test.js'],
-    reporters: ['dots'],
+    reporters: ['dots', 'progress'],
     webpack: webpackConfig,
     client: {
       captureConsole: true //output to console
@@ -32,6 +32,9 @@ module.exports = function(config) {
     webpackMiddleware: {
       noInfo: true
     },
-    browserNoActivityTimeout: 60000
+    browserNoActivityTimeout: 60000,
+    browserConsoleLogOptions: {
+      level: 'log'
+    }
   });
 };
