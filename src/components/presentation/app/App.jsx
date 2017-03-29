@@ -1,6 +1,9 @@
 import React from 'react';
 import { Header, Content } from 'components';
 import { SlideOut } from 'presentation';
+import Counter from 'presentation/counter/Counter';
+
+
 import './App.scss';
 
 const App = () => (
@@ -8,6 +11,7 @@ const App = () => (
     <Header />
     <SlideOut />
     <Content />
+    <Counter />
   </div>
 );
 
