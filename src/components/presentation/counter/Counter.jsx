@@ -1,43 +1,26 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { onIncrement, onDecrement } from './Counter.actions';
 
 const Counter = ({
   value,
-  increment,
-  decrement,
+  onIncrement,
+  onDecrement,
 }) => (
   <div>
     <h1>{value}</h1>
-    <button className="Counter__increment" onClick={increment}>+</button>
-    <button onClick={decrement}>-</button>
+    <button className="Counter__increment" onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
   </div>
 );
 
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
-  increment: PropTypes.func,
-  decrement: PropTypes.func,
+  onIncrement: PropTypes.func,
+  onDecrement: PropTypes.func,
 };
 
 Counter.defaultProps = {
-  increment: () => {},
-  decrement: () => {},
+  onIncrement: () => {},
+  onDecrement: () => {},
 };
 
-function mapStateToProps(state) {
-  return {
-    value: state.counter,
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    {
-      increment: onIncrement,
-      decrement: onDecrement,
-    }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default Counter;
