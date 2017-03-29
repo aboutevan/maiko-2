@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT } from './Counter.constants';
+import { INCREMENT, DECREMENT } from './CounterContainer.constants';
 
 export function onIncrement() {
   return {
