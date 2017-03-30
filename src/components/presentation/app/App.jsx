@@ -1,8 +1,7 @@
 import React from 'react';
 import { Header, Content } from 'components';
+import { HeaderContainer, CounterContainer } from 'container';
 import { SlideOut } from 'presentation';
-import CounterContainer from 'container/counterContainer/CounterContainer';
-
 
 import './App.scss';
 
@@ -11,7 +10,11 @@ const App = () => (
     {/* <Header />
         <SlideOut />
         <Content /> */}
+    <HeaderContainer />
+        <SlideOut />
+        <Content />
     <CounterContainer />
+    <h1>hello</h1>
   </div>
 );
 

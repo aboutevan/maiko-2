@@ -8,6 +8,7 @@ import { ThreeLineMenu } from 'presentation';
 @connect(state => ({ sidebarVisible: state.sidebar }))
 export default class Header extends Component {
 
+
   static propTypes = {
     sidebarVisible: PropTypes.objectOf(PropTypes.any),
     dispatch: PropTypes.func,
@@ -32,6 +33,8 @@ export default class Header extends Component {
       className: this.state.sidebarVisible ? '' : 'sidebar-visible',
     });
     this.props.dispatch(toggleSidebar(!this.state.sidebarVisible));
+    console.log(this.props);
+
   }
 
   render() {
