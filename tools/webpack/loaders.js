@@ -75,6 +75,9 @@ module.exports = function (env) {
             }
           },
           {
+            loader: 'postcss-loader'
+          },
+          {
             loader: "sass-loader",
             options: {
               sourceMap: true
@@ -94,11 +97,11 @@ module.exports = function (env) {
             loader: 'css-loader'
           },
           {
-            loader: 'sass-loader'
+            loader: 'postcss-loader'
           },
           {
-            loader: 'postcss-loader'
-          }
+            loader: 'sass-loader'
+          },
         ]}),
       include: path.join(__dirname, '../../src')
     });
