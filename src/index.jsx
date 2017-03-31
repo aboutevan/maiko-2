@@ -6,7 +6,7 @@ import { AppContainer } from 'react-hot-loader';
 import Root from 'components/root/Root'; // Don't fucking change this
 import configureStore from './store/configureStore';
 
-require('./components/presentation/header/Header.scss');
+require('./components/presentation/index.sass');
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
