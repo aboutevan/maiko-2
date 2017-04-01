@@ -4,9 +4,9 @@ import { CounterContainer } from 'container';
 
 const PageHome = () => (
   <LayoutMain>
-    <div className="page-home">
-      <div className="page-home__col">
-        <h2>React App</h2>
+    <div className="page-home row">
+      <div>
+        <h2>Home Page</h2>
         <CounterContainer />
       </div>
     </div>

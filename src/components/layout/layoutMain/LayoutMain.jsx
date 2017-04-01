@@ -6,9 +6,9 @@ import './LayoutMain.sass';
 const LayoutMain = props => (
   <div className="layout-main">
     <HeaderContainer />
-    <div className="layout-main__content">
+    <main className="layout-main__content">
       {props.children}
-    </div>
+    </main>
   </div>
 );
 

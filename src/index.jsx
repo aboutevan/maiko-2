@@ -16,7 +16,7 @@ render(
   <AppContainer >
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('react-root'),
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -44,7 +44,7 @@ if (module.hot) {
       <AppContainer>
         <NextApp store={store} history={history} />
       </AppContainer>,
-      document.getElementById('react-root'),
+      document.getElementById('root'),
     );
   });
 }

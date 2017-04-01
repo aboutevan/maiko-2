@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import routes from '../../routes';
-import './Root.scss';
 
 const Root = ({ store, history }) => (
   <Provider store={store}>

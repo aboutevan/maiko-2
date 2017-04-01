@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import { App } from 'presentation';
-import { PageHome } from 'page';
-import { CounterContainer } from 'container';
+import { PageHome, PageAbout } from 'page';
 import { RoutesConfig } from 'config';
 
 
@@ -25,6 +24,6 @@ RoutesConfig.map(route => (
 export default (
   <Route path={routes.home.path} component={App}>
     <IndexRoute component={PageHome} />
-    <Route path={routes.about.path} component={CounterContainer} />
+    <Route path={routes.about.path} component={PageAbout} />
   </Route>
 );
