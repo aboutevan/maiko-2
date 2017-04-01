@@ -4,7 +4,7 @@ import { ThreeLineMenu, NavOverlay } from 'presentation';
 const Header = props => (
   <header className={props.className}>
     <ThreeLineMenu {...props} />
-    <NavOverlay {...props}/>
+    <NavOverlay {...props} />
   </header>
 );
 
