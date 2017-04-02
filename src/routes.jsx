@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+// import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router-dom';
 import { App } from 'presentation';
 import { PageHome, PageAbout } from 'page';
 import { RoutesConfig } from 'config';
@@ -11,19 +12,27 @@ import { RoutesConfig } from 'config';
 // }
 
 // create routes obj
-const routes = {};
+const routesObj = {};
 
 // push RouteConfigs to routes obj
 // any route obj in RouteConfigs
 // automatically available in routes obj
 // i.e. routes: { home: homeRouteObj, about: aboutRouteObj }
 RoutesConfig.map(route => (
-  routes[route.name] = route
+  routesObj[route.name] = route
 ));
 
-export default (
-  <Route path={routes.home.path} component={App}>
-    <IndexRoute component={PageHome} />
-    <Route path={routes.about.path} component={PageAbout} />
-  </Route>
+const Routes = props => (
+  <div>
+    <Route exact path={routesObj.home.path} component={PageHome} />
+    <Route path={routesObj.about.path} component={PageAbout} />
+  </div>
 );
+
+export default Routes;
+
+// export default (
+//   <div>
+//     <Route exact path={routesObj.home.path} component={App} />
+//   </div>
+// );

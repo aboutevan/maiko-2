@@ -5,7 +5,8 @@ import './App.scss';
 
 const App = props => (
   <div className="app">
-    { props.children }
+    <h1>HELLO</h1>
+    <div>{ props.children }</div>
   </div>
 );
 

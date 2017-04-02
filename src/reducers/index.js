@@ -1,4 +1,4 @@
-import { routerReducer as routing } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 import { counterContainerReducer } from 'container/counterContainer/index';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
@@ -14,8 +14,8 @@ const sidebar = (state = false, action) => {
 
 const rootReducer = combineReducers({
   sidebar,
-  routing,
   counterContainer: counterContainerReducer,
+  router: routerReducer,
 });
 
 export default rootReducer;

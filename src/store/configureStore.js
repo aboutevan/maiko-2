@@ -1,18 +1,15 @@
 import { applyMiddleware, createStore } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
 
-const store = (initialState) => {
-  const storeArgs = [rootReducer, initialState];
+export default function configureStore(history) {
+  // Build the middleware for intercepting and dispatching navigation actions
+  const middleware = [routerMiddleware(history)];
 
   if (process.env.NODE_ENV !== 'production') {
-    const logger = createLogger();
-    storeArgs.push(applyMiddleware(logger));
+    middleware.push(createLogger());
   }
 
-  return createStore(...storeArgs);
-};
-
-export default function configureStore(initialState) {
-  return store(initialState);
+  return createStore(rootReducer, applyMiddleware(...middleware));
 }
