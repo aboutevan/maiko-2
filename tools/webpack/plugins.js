@@ -27,13 +27,13 @@ module.exports = function (env) {
   if (env === 'development') {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-      // new StyleLintPlugin({
-      //   configFile: '.stylelintrc',
-      //   files: ['**/*.sass'],
-      //   syntax: 'sugarss',
-      //   failOnError: false,
-      // })
+      new webpack.NamedModulesPlugin(),
+      new StyleLintPlugin({
+        configFile: '.stylelintrc',
+        files: ['**/*.sass'],
+        syntax: 'sugarss',
+        failOnError: false,
+      })
     );
   } else {
     plugins.push(
