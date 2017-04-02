@@ -1,4 +1,4 @@
-import { routerReducer as routing } from 'react-router-redux';
+import { routerReducer } from 'react-router-redux';
 import { counterContainerReducer } from 'container/counterContainer/index';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
@@ -12,20 +12,10 @@ const sidebar = (state = false, action) => {
   }
 };
 
-const rest = (state = {}, action) => {
-  switch (action.type) {
-    case 'REST':
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 const rootReducer = combineReducers({
   sidebar,
-  rest,
-  routing,
   counterContainer: counterContainerReducer,
+  router: routerReducer,
 });
 
 export default rootReducer;

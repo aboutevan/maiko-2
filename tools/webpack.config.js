@@ -20,6 +20,8 @@ const config = {
       components: path.resolve(__dirname, "../src/components"),
       presentation: path.resolve(__dirname, "../src/components/presentation"),
       container: path.resolve(__dirname, "../src/components/container"),
+      layout: path.resolve(__dirname, "../src/components/layout"),
+      page: path.resolve(__dirname, "../src/components/page"),
       config: path.resolve(__dirname, "../src/config"),
       helpers: path.resolve(__dirname, "../src/helpers"),
     }
@@ -38,6 +40,7 @@ const config = {
   // },
   devServer: {
     // contentBase: path.resolve(__dirname, '../src/'),
+    historyApiFallback: true,
     stats: { colors: true},
     host: 'localhost',
     port: '3000',

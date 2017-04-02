@@ -9,4 +9,12 @@ const NavOverlay = props => (
   </nav>
 );
 
+NavOverlay.propTypes = {
+  className: React.PropTypes.string,
+};
+
+NavOverlay.defaultProps = {
+  className: '',
+};
+
 export default NavOverlay;

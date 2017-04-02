@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { NavLinksConfig } from 'config';
+import { Link } from 'react-router-dom';
+import { RoutesConfig } from 'config';
 
 const NavLinks = () => (
   <ul className="nav-overlay__links">
     {
-      NavLinksConfig.map(item => (
-        <li className="nav-overlay__link-item" key={item.url}>
-          <Link to={item.url}>
+      RoutesConfig.map(item => (
+        <li className="nav-overlay__link-item" key={item.path}>
+          <Link to={item.path}>
             <p>{item.name}</p>
           </Link>
         </li>

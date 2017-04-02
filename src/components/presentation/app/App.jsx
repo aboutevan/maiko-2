@@ -1,17 +1,17 @@
 import React from 'react';
-import { Content } from 'components';
-import { HeaderContainer, CounterContainer } from 'container';
-import { SlideOut } from 'presentation';
+
 
 import './App.scss';
 
-const App = () => (
-  <div className="container">
-    <HeaderContainer />
-
-    <Content />
-    <CounterContainer />
+const App = props => (
+  <div className="app">
+    <h1>HELLO</h1>
+    <div>{ props.children }</div>
   </div>
 );
+
+App.propTypes = {
+  children: React.PropTypes.node.isRequired,
+};
 
 export default App;
