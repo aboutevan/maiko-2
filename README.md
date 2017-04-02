@@ -1,82 +1,72 @@
-# react-redux-webpack-boilerplate
-Now this repo is much more than just a simple playaround with react, redux and webpack. The first priority was, to achieve the most convenient way to connect your components to the redux-store using classes. The syntax is really declarative and readable this way, sparing a lot of boilerplate code.
+#React Universal
 
-##Contains:
-* very basic landing page, displaying the workflow with redux-logger
-* example components, and how to connect them to redux-store
-* supporting static class properties
-* supporting class and function decorators
-* supporting async-await
-* ES6 - 7 Support with Babel
-* font-awesome included in the package
-* routing with react-router wired into store
-* supporting sass, import your sass file in your component
-* importing images and fonts as data-urls so you don't need to worry about them
-* a basic tool for REST with fetch-api
+>### !!! This is a living project and will often change !!!
 
-##Example Component:
+Single Page React App with Server Side Rendering, with a bunch of added features. [View example app](http://react-app.aboutevan.com).
 
-```js
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {REST} from 'helpers';
-import {restTest} from 'actions';
-import './Content.scss';
+##Quick Start
 
-@connect(state => ({sidebarVisible: state.sidebar}))
-export default class Content extends Component {
 
-    static propTypes = {
-        state: PropTypes.object,
-    };
+Yarn(recommended):
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            sidebarVisible: props.sidebarVisible,
-            className: ''
-        };
-    }
+`yarn && yarn start`
 
-    componentWillReceiveProps(props) {
+NPM:
 
-        REST.get('/').then((response) => this.props.dispatch(restTest(response)));
+`npm install && npm start`
 
-        this.setState({
-            sidebarVisible: !this.state.sidebarVisible,
-            className: this.state.sidebarVisible ? '' : 'nav-visible'
-        });
-    }
 
-    render() {
-        return (
-            <main className={this.state.className}>
-                {this.props.children}
-            </main>
-        );
-    }
-}
-```
+##Features
 
-Note that `connect` from `react-redux` is used here as a decorator. The function itself takes 2 params namely `mapStateToProps` and `mapDispatchToProps`. The first is defined as an inline arrow function, the second is omitted, since `connect` applies `dispatch` as a component property by default(use: this.props.dispatch). 
+***Hot Reloading***
 
-##Webpack aliases
+Webpack build with HMR propagates changes to JS and CSS/Sass instantly without refreshing the page.
 
-0. components
-1. helpers
-2. actions
-3. config
+***Sass/Foundation***
 
-You can import your stuff anywhere with ```import {Item1, Item2, Item3} from "alias-name"```. For this to work you need to register your item in the appropriate folder's `index.js` file.
+Write styles with Sass, with [Foundation](http://foundation.zurb.com/sites/docs/) styles integrated by default, but easily excluded in the build.  Post-CSS Autoprefixer included.
+ 
 
-## Run the app
+***Modern, modular JavaScript***
 
-0. ```npm install```
-1. ```npm start```
+Use the power of next generation JavaScript.  Write JS or JSX with ES6/2015, making modular architecture a breeze.
 
-This will install the dependecies and start a webpack-devserver at http://localhost:8080.
+***Routing***
 
-## Build the app
-```npm run build```
+Easily manage routes with [React Router](https://github.com/ReactTraining/react-router).
 
-This will build the app into the "dist" directory in the root of the project.
+***SEO***
+
+
+Server side rendering makes helps search engines index each page.  [React Helmet](https://github.com/nfl/react-helmet) allows for clear, simple meta tag management.
+
+***Testing***
+
+Test React components with [Enzyme](https://github.com/airbnb/enzyme), [Jasmine](https://jasmine.github.io/) and [Karma](https://karma-runner.github.io/1.0/index.html).
+
+## Documentation
+
+
+* ###Tasks
+  
+
+  * `yarn start`
+
+    Will run an Express dev server with webpack-dev-middleware and webpack-hot-middleware to enable hot reloading.  The server is accessible via BrowserSync on `localhost:3000`, which proxies from port 9000.
+
+  * `yarn run build`
+
+    Copies the `src` directory to a `dist` directory with production settings.
+  
+  * `yarn run production`
+
+    Same as `build` but also launches server on port 9000.
+  
+  * `yarn run deploy`
+
+    This will build and push a production version of the app to a configured Heroku domain.
+
+
+  * `yarn run test`
+
+    Run all tests in the `test` directory.  Via Chrome and PhantomJS.
