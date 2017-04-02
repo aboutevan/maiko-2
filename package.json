@@ -11,6 +11,7 @@
   "author": "Daniel Tok",
   "license": "ISC",
   "dependencies": {
+    "history": "^4.6.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-motion": "^0.4.7",

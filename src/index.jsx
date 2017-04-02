@@ -1,5 +1,5 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import createHistory from 'history/createBrowserHistory';
 import Root from './components/root/Root';
@@ -9,7 +9,7 @@ import configureStore from './store/configureStore';
 require('./components/presentation/index.sass');
 
 // Create history (using browserHistory)
-const history = createHistory()
+const history = createHistory();
 
 // Pass history to store for react-router/react-router-redux alpha
 const store = configureStore(history);
@@ -20,7 +20,7 @@ const store = configureStore(history);
 // render app
 render(
   <AppContainer >
-    <Root store={store} history={history}/>
+    <Root store={store} history={history} />
   </AppContainer>,
   document.getElementById('root'),
 );

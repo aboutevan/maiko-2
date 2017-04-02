@@ -1,7 +1,6 @@
 import React from 'react';
 // import { Route, IndexRoute } from 'react-router';
 import { Route } from 'react-router-dom';
-import { App } from 'presentation';
 import { PageHome, PageAbout } from 'page';
 import { RoutesConfig } from 'config';
 
@@ -22,7 +21,7 @@ RoutesConfig.map(route => (
   routesObj[route.name] = route
 ));
 
-const Routes = props => (
+const Routes = () => (
   <div>
     <Route exact path={routesObj.home.path} component={PageHome} />
     <Route path={routesObj.about.path} component={PageAbout} />
@@ -30,9 +29,3 @@ const Routes = props => (
 );
 
 export default Routes;
-
-// export default (
-//   <div>
-//     <Route exact path={routesObj.home.path} component={App} />
-//   </div>
-// );
