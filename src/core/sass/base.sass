@@ -1,0 +1,12 @@
+.main-row
+  @include grid-column-row
+  padding-left: $main-row-padding
+  padding-right: $main-row-padding
+
+  @include breakpoint(large)
+    padding-left: $main-row-padding
+    padding-right: $main-row-padding
+
+a, button
+  &:focus
+    outline: none

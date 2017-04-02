@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ThreeLineMenu, NavOverlay } from 'presentation';
 
-const Header = props => (
-  <header className={props.className}>
-    <ThreeLineMenu {...props} />
-    <NavOverlay {...props} />
-  </header>
-);
+export default class HeaderContainer extends Component {
 
-Header.propTypes = {
-  className: React.PropTypes.string,
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      navVisible: false,
+      className: '',
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-Header.defaultProps = {
-  className: '',
-};
+  handleClick() {
+    this.setState({
+      navVisible: !this.state.navVisible,
+      className: this.state.navVisible ? '' : 'nav-visible',
+    });
+  }
 
-export default Header;
+  render() {
+    return (
+      <header className={this.state.className}>
+        <ThreeLineMenu className={this.state.className} handleClick={this.handleClick} />
+        <NavOverlay className={this.state.className} handleClick={this.handleClick} />
+      </header>
+    );
+  }
+}

@@ -2,34 +2,34 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Header } from 'presentation';
-import toggleSidebar from './actions';
+import toggleNav from './actions';
 
 class HeaderContainer extends Component {
 
   static propTypes = {
-    sidebarVisible: PropTypes.bool,
-    toggleSidebar: PropTypes.func,
+    navVisible: PropTypes.bool,
+    toggleNav: PropTypes.func,
   };
 
   static defaultProps = {
-    sidebarVisible: false,
-    toggleSidebar: () => {},
+    navVisible: false,
+    toggleNav: () => {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      sidebarVisible: props.sidebarVisible,
+      navVisible: props.navVisible,
       className: '',
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.props.toggleSidebar(!this.state.sidebarVisible);
+    this.props.toggleNav(!this.state.navVisible);
     this.setState({
-      sidebarVisible: !this.state.sidebarVisible,
-      className: this.state.sidebarVisible ? '' : 'sidebar-visible',
+      navVisible: !this.state.navVisible,
+      className: this.state.navVisible ? '' : 'sidebar-visible',
     });
   }
 
@@ -42,12 +42,12 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = state => (
   {
-    sidebarVisible: state.sidebar,
+    navVisible: state.navOverlayReducer,
   }
 );
 
 const mapDispatchToProps = dispatch => (
-  bindActionCreators({ toggleSidebar }, dispatch)
+  bindActionCreators({ toggleNav }, dispatch)
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
