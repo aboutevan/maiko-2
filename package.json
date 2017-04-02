@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-with-webpack",
+  "name": "react-redux-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "Build static React Apps with Webpack 2, React, Redux and React Router 4",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./tools/webpack.config.js",
@@ -9,8 +9,21 @@
     "deploy": "netlify deploy",
     "test": "karma start karma.config.js || true"
   },
-  "author": "Daniel Tok",
+  "author": "Evan Salzbrenner evan.salzbrenner@gmail.com",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aboutevan/react-redux-boilerplate.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "react-router",
+    "spa",
+    "eslint",
+    "stylelint",
+    "sass"
+  ],
   "dependencies": {
     "history": "^4.6.1",
     "react": "^15.4.1",
