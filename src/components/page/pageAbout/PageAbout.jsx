@@ -3,7 +3,7 @@ import { LayoutMain } from 'layout';
 
 const PageAbout = () => (
   <LayoutMain>
-    <div className="page-about row">
+    <div className="page-about main-row">
       <div>
         <h2>About Page</h2>
       </div>

@@ -1,11 +1,12 @@
 import React from 'react';
-import { HeaderContainer } from 'container';
+import { NavOverlay, Header } from 'presentation';
 
-import './LayoutMain.sass';
+// import './LayoutMain.sass';
 
 const LayoutMain = props => (
   <div className="layout-main">
-    <HeaderContainer />
+    <Header />
+    <NavOverlay />
     <main className="layout-main__content">
       {props.children}
     </main>

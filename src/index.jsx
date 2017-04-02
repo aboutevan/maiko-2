@@ -2,11 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import createHistory from 'history/createBrowserHistory';
-import Root from './components/root/Root';
+import Root from './components/Root';
 import configureStore from './store/configureStore';
 // import { push } from 'react-router-redux';
 
-require('./components/presentation/index.sass');
+import './index.sass';
 
 // Create history (using browserHistory)
 const history = createHistory();
@@ -41,14 +41,14 @@ if (module.hot) {
     }
   };
 
-  module.hot.accept('components/root/Root', () => {
+  module.hot.accept('components/Root', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    // const NextApp = require('components/root/Root').default;
+    const NextApp = require('components/Root').default;
 
     render(
       <AppContainer>
-        <Root store={store} history={history} />
+        <NextApp store={store} history={history} />
       </AppContainer>,
       document.getElementById('root'),
     );

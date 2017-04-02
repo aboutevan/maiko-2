@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react';
-import './ThreeLineMenu.scss';
 
 const ThreeLineMenu = props => (
-  <a tabIndex="0" onClick={props.handleClick}>
-    <div className="three-line-menu">
-      <span className={props.className} />
-    </div>
+  <a className="three-line-menu" tabIndex="0" onClick={props.handleClick}>
+    <span className={props.className} />
   </a>
 );
 

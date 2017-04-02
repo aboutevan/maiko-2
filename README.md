@@ -44,7 +44,7 @@ export default class Content extends Component {
 
         this.setState({
             sidebarVisible: !this.state.sidebarVisible,
-            className: this.state.sidebarVisible ? '' : 'sidebar-visible'
+            className: this.state.sidebarVisible ? '' : 'nav-visible'
         });
     }
 

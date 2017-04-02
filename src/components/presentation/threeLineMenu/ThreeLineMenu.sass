@@ -1,0 +1,48 @@
+.three-line-menu
+  display: block
+  position: relative
+  float: right
+  z-index: 9999
+  border-left: 1px solid rgba(255, 255, 255, 0.1)
+  cursor: pointer
+  padding: 25px 37px
+  text-align: left
+
+  span
+    position: absolute
+    left: 24px
+    transition: background 0.3s
+    background: $c1
+    width: 24px
+    height: 2px
+
+    &.nav-visible
+      background: rgba($c1, 0)
+
+      &::before
+        transform: translateX(4px) translateY(-3px) rotate(45deg)
+        background: $c2
+
+      &::after
+        transform: translateX(4px) translateY(2px) rotate(-45deg)
+        background: $c2
+
+    &::before
+      position: absolute
+      top: -6px
+      transform-origin: 0% 50%
+      transition: transform 0.3s
+      background: $c1
+      width: 24px
+      height: 2px
+      content: ''
+
+    &::after
+      position: absolute
+      top: 6px
+      transform-origin: 0% 50%
+      transition: transform 0.3s
+      background: $c1
+      width: 24px
+      height: 2px
+      content: ''

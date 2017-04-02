@@ -12,8 +12,8 @@ module.exports = function (env) {
   if(env === 'development') {
     output.path = path.join(__dirname, '../../src', 'static');
   } else {
-    output.publicPath = '/static/compiled',
-    output.path = path.join(__dirname, '../../dist', 'static', 'compiled');
+    output.publicPath = '',
+    output.path = path.join(__dirname, '../../dist');
   }
 
   return output;

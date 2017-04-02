@@ -1,7 +1,7 @@
 'use strict';
 const webpack = require('webpack');
 const path = require('path');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -27,34 +27,34 @@ module.exports = function (env) {
   if (env === 'development') {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NamedModulesPlugin()
-      // new StyleLintPlugin({
-      //   configFile: '.stylelintrc',
-      //   files: ['**/*.sass'],
-      //   syntax: 'sugarss',
-      //   failOnError: false,
-      // })
+      new webpack.NamedModulesPlugin(),
+      new StyleLintPlugin({
+        configFile: '.stylelintrc',
+        files: ['**/*.sass'],
+        syntax: 'sugarss',
+        failOnError: false,
+      })
     );
   } else {
     plugins.push(
-      new webpack.optimize.DedupePlugin(),
+      // new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: { warnings: false },
         mangle: true,
         sourcemap: false,
         beautify: false
       }),
-      // new CopyWebpackPlugin([
-      //   {
-      //     from: path.join(__dirname, '../../src', 'static'),
-      //     to: path.join(__dirname, '../../dist', 'static'),
-      //     ignore: ['/compiled/bundle.js']
-      //   },
-      //   {
-      //     from: path.join(__dirname, '../../src', 'index.ejs'),
-      //     to: path.join(__dirname, '../../dist', 'index.ejs')
-      //   }
-      // ]),
+      new CopyWebpackPlugin([
+        {
+          from: path.join(__dirname, '../../src', 'assets'),
+          to: path.join(__dirname, '../../dist', 'assets'),
+          ignore: [{ glob: 'vendor/**/*'}]
+        },
+        // {
+        //   from: path.join(__dirname, '../../src', 'index.ejs'),
+        //   to: path.join(__dirname, '../../dist', 'index.ejs')
+        // }
+      ]),
       new ExtractTextPlugin('bundle.css')
     );
   }
