@@ -24,7 +24,7 @@ RoutesConfig.map(route => (
 const Routes = () => (
   <div>
     <Route exact path={routesObj.home.path} component={PageHome} />
-    <Route path={routesObj.about.path} component={PageAbout} />
+    <Route exact path={routesObj.about.path} component={PageAbout} />
   </div>
 );
 

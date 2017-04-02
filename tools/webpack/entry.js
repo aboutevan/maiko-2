@@ -10,18 +10,18 @@ module.exports = function (env) {
     //     "webpack/hot/only-dev-server"
     // ],
     app: [
-      "react-hot-loader/patch",
-      "babel-polyfill",
-      "webpack-dev-server/client?http://localhost:3000",
-      "webpack/hot/only-dev-server",
       path.join(__dirname, '../../src', 'index.jsx')
     ]
   };
 
   if(env === 'development') {
-    // entry.app.unshift('webpack-hot-middleware/client')
+    entry.app.unshift("react-hot-loader/patch",
+      "babel-polyfill",
+      "webpack-dev-server/client?http://localhost:3000",
+      "webpack/hot/only-dev-server")
   } else {
-    // any production settings
+    entry.app.unshift(
+      "babel-polyfill")
   }
 
   return entry;
