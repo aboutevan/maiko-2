@@ -1,4 +1,4 @@
-#React Redux SPA
+###React Redux SPA
 
 Opinionated React-Redux SPA starter, with a bunch of added features. [View production build](http://react-redux.aboutevan.com).
 
