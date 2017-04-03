@@ -56,23 +56,23 @@ Test React components with [Enzyme](https://github.com/airbnb/enzyme), [Jasmine]
 ## Documentation
 
 
-### * Tasks
+### Tasks
   
 
-  ### * `yarn start`
+  #### `yarn start`
 
     Will run webpack-dev-werver with hot reloading at `localhost:3000`.
 
-  ### * `yarn build`
+  #### `yarn build`
 
     Static production build ready for deployment.
   
-  ### * `yarn deploy`
+  #### `yarn deploy`
 
     Build and push to Netlify.
 
 
-  ### * `yarn test`
+  #### `yarn test`
 
     Run all tests in the `test` directory.  Via Chrome and PhantomJS
     
