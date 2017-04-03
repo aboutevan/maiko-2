@@ -1,8 +1,19 @@
-#React Universal
+#React Redux SPA
 
->### !!! This is a living project and will often change !!!
+Opinionated React-Redux SPA starter, with a bunch of added features. [View production build](http://react-redux.aboutevan.com).
 
-Single Page React App with Server Side Rendering, with a bunch of added features. [View example app](http://react-app.aboutevan.com).
+* [Webpack 2](https://webpack.github.io/)
+* [React](https://facebook.github.io/react/)
+* [React Router (v4)](https://reacttraining.com/react-router/)
+* [Redux](http://redux.js.org/)
+* ES6/7
+* [ESLint (airbnb-config)](eslint.org)
+* Sass
+* [Stylelint(BEM & Concentric)](https://github.com/stylelint/stylelint)
+* [Enzyme](https://github.com/airbnb/enzyme)
+* [Karma] (https://karma-runner.github.io/1.0/index.html)
+* [Jasmine](https://jasmine.github.io/2.0/introduction.html)
+* [Netlify](https://www.netlify.com/)
 
 ##Quick Start
 
@@ -20,25 +31,23 @@ NPM:
 
 ***Hot Reloading***
 
-Webpack build with HMR propagates changes to JS and CSS/Sass instantly without refreshing the page.
-
-***Sass/Foundation***
-
-Write styles with Sass, with [Foundation](http://foundation.zurb.com/sites/docs/) styles integrated by default, but easily excluded in the build.  Post-CSS Autoprefixer included.
- 
+Change JS and CSS/Sass instantly without refreshing the page.
 
 ***Modern, modular JavaScript***
 
-Use the power of next generation JavaScript.  Write JS or JSX with ES6/2015, making modular architecture a breeze.
+Use the power of next generation JavaScript.  Write JS or JSX with ES6/7, making modular architecture a breeze.
+
+***Sass/Foundation***
+
+Write Sass, with [Foundation](http://foundation.zurb.com/sites/docs/) styles integrated by default, but easily excluded in the build.  Post-CSS Autoprefixer included.
+
+***Enforced Best Practices***
+
+Messy, anything-goes, code can be a nightmare.  The airbnb/ESLint config encourages best practices when writing JavaScript.  Stylelint config encourages the BEM and concentric patterns for all `.sass` files.
 
 ***Routing***
 
-Easily manage routes with [React Router](https://github.com/ReactTraining/react-router).
-
-***SEO***
-
-
-Server side rendering makes helps search engines index each page.  [React Helmet](https://github.com/nfl/react-helmet) allows for clear, simple meta tag management.
+Easily manage routes with [React Router](https://reacttraining.com/react-router/).
 
 ***Testing***
 
@@ -50,23 +59,108 @@ Test React components with [Enzyme](https://github.com/airbnb/enzyme), [Jasmine]
 * ###Tasks
   
 
-  * `yarn start`
+  ###* `yarn start`
 
-    Will run an Express dev server with webpack-dev-middleware and webpack-hot-middleware to enable hot reloading.  The server is accessible via BrowserSync on `localhost:3000`, which proxies from port 9000.
+    Will run webpack-dev-werver with hot reloading at `localhost:3000`.
 
-  * `yarn run build`
+  ###* `yarn build`
 
-    Copies the `src` directory to a `dist` directory with production settings.
+    Static production build ready for deployment.
   
-  * `yarn run production`
+  ###* `yarn deploy`
 
-    Same as `build` but also launches server on port 9000.
+    Build and push to Netlify.
+
+
+  ###* `yarn test`
+
+    Run all tests in the `test` directory.  Via Chrome and PhantomJS
+    
+```
+node_modules/
+
+src/
+  assets/         // fonts, images
+  components/
+    container/    // redux components (presentation wrappers)
+    layout/     // layouts or templates
+    page/     // layout wrappers
+    presentation/   // ui components
+    components.sass // all component styles
+    Root.jsx    // Provider and ConnectedRouter
+    Routes.jsx    // All routes
   
-  * `yarn run deploy`
+  config/
+    routes.config.js // global routes
+  
+  core /
+    sass/     // global sass
+    vendor/     // sass or js (foundation sass)
+  
+  reducers/
+  store/
+  
+  index.jsx     // render the app
+  index.sass      // all sass
+  index.tpl.html    // HTML template for rendered app
 
-    This will build and push a production version of the app to a configured Heroku domain.
+
+test/         // all tests
+
+tools/
+  webpack/      // webpack tasks, dev vs prod settings
+  webpack.config.js // config that consolidates above
+  webpack.test.js   // referenced in ./karma.config.js
 
 
-  * `yarn run test`
+_redirects        // netlify redirect file needed for spa
+```
 
-    Run all tests in the `test` directory.  Via Chrome and PhantomJS.
+This boilerplate bases its architecture on the idea of **grouping by feature**, as discussed in [this article](https://www.smashingmagazine.com/2016/09/how-to-scale-react-applications/).
+
+Instead of grouping all actions or reducers inside an `actions` or `reducers` directory, each container component directory contains all relevant files:
+
+```
+components/
+  container/
+    ExampleContainer/
+      actions.js
+      constants.js
+      reducers.js
+      ExampleContainer.jsx
+
+```
+
+Each sub-directory under `components` contains it's own `index.js` file which simply serves as a consolidated place to export all components within that directory.  This allows for easier `imports` when used in conjuction with Webpack aliases.
+
+```
+// components/presentation/index.js
+
+export SampleComponent from './SampleComponent/SampleComponent'
+
+```
+
+This can then be referenced in any other file like so:
+
+```
+// components/presentation/SomeOtherComponent/SomeOtherComponent.jsx
+
+import { SampleComponent } from 'presentation';
+
+```
+
+A complete list of all aliases from `webpack.config.js`:
+
+`presentation`
+
+
+`container`
+
+`layout`
+
+`page`
+
+`config`
+
+`modernizr$`
+    

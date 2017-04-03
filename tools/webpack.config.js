@@ -23,7 +23,6 @@ const config = {
       layout: path.resolve(__dirname, "../src/components/layout"),
       page: path.resolve(__dirname, "../src/components/page"),
       config: path.resolve(__dirname, "../src/config"),
-      helpers: path.resolve(__dirname, "../src/helpers"),
     }
   },
 
