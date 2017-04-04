@@ -35,24 +35,21 @@ export default class HeroCanvas extends Component {
     PIXI.utils.skipHello(); // disable pixi banner in console
 
     // define all cached variables
-    this.pixi = new PIXI.Application();
-    // this.renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-    // this.pixi.stage = new PIXI.Container();
+    this.pixi = PIXI;
+    this.renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+    this.stage = new PIXI.Container();
     this.bgContainer = new PIXI.Container();
-    this.pixi.stage.addChild(this.bgContainer);
-    // this.texture = PIXI.Texture.fromImage('assets/img/a-base.png');
-    // console.log(this.texture);
-    // this.bgContainer.addChild(this.texture);
-    // this.layerAll = new PIXI.Container();
-    // this.layerRight = new PIXI.Container();
-    // this.layerLeft = new PIXI.Container();
+    // this.stage.addChild(this.bgContainer);
+    this.layerAll = new PIXI.Container();
+    this.layerRight = new PIXI.Container();
+    this.layerLeft = new PIXI.Container();
 
     // base canvas styles
-    // this.renderer.view.style.position = 'absolute';
-    // this.renderer.view.style.display = 'block';
-    // this.renderer.view.style.minHeight = 697;
-    // this.renderer.autoResize = true;
-    const canvas = this.pixi.renderer;
+    this.renderer.view.style.position = 'absolute';
+    this.renderer.view.style.display = 'block';
+    this.renderer.view.style.minHeight = 697;
+    this.renderer.autoResize = true;
+    const canvas = this.renderer.view;
 
     // append it to component
     // Pixi generates its own canvas element, which has to be
@@ -62,13 +59,13 @@ export default class HeroCanvas extends Component {
     // in one component, instead creating a component just to append to
     // another.  If we weren't using Pixi, we could just render a canvas
     // element directly
-    // this.component.appendChild(canvas);
+    this.component.appendChild(canvas);
 
     // manipulate the pixi canvas
-    // this.addContainersToStage();
-    // this.addPathstoLoader();
-    // this.initPixiLoader();
-    // this.animate();
+    this.addContainersToStage();
+    this.addPathstoLoader();
+    this.initPixiLoader();
+    this.animate();
   }
 
   setSpritePositions() {
@@ -148,22 +145,22 @@ export default class HeroCanvas extends Component {
     const resources = PIXI.loader.resources;
 
     // layers
-    this.layerDpSprite = new PIXI.Sprite(resources['../img/displacement.png'].texture);
-
+    this.layerDpSprite = new PIXI.Sprite(resources[spritePaths.displacement].texture);
+    console.log(this.layerDpSprite);
     this.layerDpFilter = new PIXI.filters.DisplacementFilter(this.layerDpSprite);
     this.layerDpSprite.width = window.innerWidth;
     this.layerAll.addChild(this.layerDpSprite);
 
     // bg
-    this.bgDpSprite = new PIXI.Sprite(resources['../img/displacement-5.jpg'].texture);
+    this.bgDpSprite = new PIXI.Sprite(resources[spritePaths.displacement5].texture);
     // scaleSpriteToCanvas(this.bgDpSprite, this.renderer.view);
     this.bgDpFilter = new PIXI.filters.DisplacementFilter(this.bgDpSprite);
     this.bgDpFilter.scale.x = this.bgDpFilter.scale.y = 60;
     this.bgContainer.addChild(this.bgDpSprite);
 
     // repeat pixi v4
-    this.displacementTexture = PIXI.Texture.fromImage('../img/displacement-5.jpg');
-    this.dTexture = PIXI.Texture.fromImage('../img/displacement.png');
+    this.displacementTexture = PIXI.Texture.fromImage(spritePaths.displacement5);
+    this.dTexture = PIXI.Texture.fromImage(spritePaths.displacement);
     this.displacementTexture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     this.dTexture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
   }
@@ -175,29 +172,29 @@ export default class HeroCanvas extends Component {
     // layerRight
     this.layerRightChildren = [
       // M 0,1
-      new PIXI.Sprite(resources['../img/m-base.png'].texture),
-      new PIXI.Sprite(resources['../img/m-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.mbase].texture),
+      new PIXI.Sprite(resources[spritePaths.mfade].texture),
       // A 2,3
-      new PIXI.Sprite(resources['../img/a-base.png'].texture),
-      new PIXI.Sprite(resources['../img/a-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.abase].texture),
+      new PIXI.Sprite(resources[spritePaths.afade].texture),
       // I 4,5
-      new PIXI.Sprite(resources['../img/i-base.png'].texture),
-      new PIXI.Sprite(resources['../img/i-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.ibase].texture),
+      new PIXI.Sprite(resources[spritePaths.ifade].texture),
       // O 6,7
-      new PIXI.Sprite(resources['../img/o-base.png'].texture),
-      new PIXI.Sprite(resources['../img/o-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.obase].texture),
+      new PIXI.Sprite(resources[spritePaths.ofade].texture),
       // H 8,9
-      new PIXI.Sprite(resources['../img/h-base.png'].texture),
-      new PIXI.Sprite(resources['../img/h-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.hbase].texture),
+      new PIXI.Sprite(resources[spritePaths.hfade].texture),
       // C 10,11
-      new PIXI.Sprite(resources['../img/c-base.png'].texture),
-      new PIXI.Sprite(resources['../img/c-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.cbase].texture),
+      new PIXI.Sprite(resources[spritePaths.cfade].texture),
       // KO 12, 13
-      new PIXI.Sprite(resources['../img/ko-base.png'].texture),
-      new PIXI.Sprite(resources['../img/ko-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.kobase].texture),
+      new PIXI.Sprite(resources[spritePaths.kofade].texture),
       // BA 14, 15
-      new PIXI.Sprite(resources['../img/ba-base.png'].texture),
-      new PIXI.Sprite(resources['../img/ba-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.babase].texture),
+      new PIXI.Sprite(resources[spritePaths.bafade].texture),
     ];
 
     this.layerRightChildren.map(child => this.layerRight.addChild(child)
@@ -207,26 +204,26 @@ export default class HeroCanvas extends Component {
 
     this.layerLeftChildren = [
       // MAI 0,1
-      new PIXI.Sprite(resources['../img/mai-base.png'].texture),
-      new PIXI.Sprite(resources['../img/mai-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.maibase].texture),
+      new PIXI.Sprite(resources[spritePaths.maifade].texture),
       // A Small 2,3
-      new PIXI.Sprite(resources['../img/a-sm-base.png'].texture),
-      new PIXI.Sprite(resources['../img/a-sm-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.a-smbase].texture),
+      new PIXI.Sprite(resources[spritePaths.a-smfade].texture),
       // K 4,5
-      new PIXI.Sprite(resources['../img/k-base.png'].texture),
-      new PIXI.Sprite(resources['../img/k-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.kbase].texture),
+      new PIXI.Sprite(resources[spritePaths.kfade].texture),
       // B 6,7
-      new PIXI.Sprite(resources['../img/b-base.png'].texture),
-      new PIXI.Sprite(resources['../img/b-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.bbase].texture),
+      new PIXI.Sprite(resources[spritePaths.bfade].texture),
       // I small 8,9
-      new PIXI.Sprite(resources['../img/i-sm-base.png'].texture),
-      new PIXI.Sprite(resources['../img/i-sm-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.i-smbase].texture),
+      new PIXI.Sprite(resources[spritePaths.i-smfade].texture),
       // CH 10,11
-      new PIXI.Sprite(resources['../img/ch-base.png'].texture),
-      new PIXI.Sprite(resources['../img/ch-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.chbase].texture),
+      new PIXI.Sprite(resources[spritePaths.chfade].texture),
       // II 12,13
-      new PIXI.Sprite(resources['../img/ii-base.png'].texture),
-      new PIXI.Sprite(resources['../img/ii-fade.png'].texture),
+      new PIXI.Sprite(resources[spritePaths.iibase].texture),
+      new PIXI.Sprite(resources[spritePaths.iifade].texture),
     ];
 
     this.layerLeftChildren.map(child => this.layerLeft.addChild(child));
@@ -265,7 +262,7 @@ export default class HeroCanvas extends Component {
     const PIXI = this.pixi;
     const resources = PIXI.loader.resources;
 
-    this.background = new PIXI.Sprite(resources['../img/darkness-10.jpg'].texture);
+    this.background = new PIXI.Sprite(resources[spritePaths.darkness10].texture);
     scaleSpriteToCanvas(this.background, this.renderer.view);
 
     this.bgContainer.alpha = 0.35;
@@ -282,10 +279,8 @@ export default class HeroCanvas extends Component {
     }
 
     // add sprites
-    console.log('before')
-    PIXI.loader.add('a-base.png')
-    console.log(PIXI.loader)
-    // spritePaths.map(path => PIXI.loader.add(path));
+    // PIXI.loader.add('abase')
+    spritePaths.map(path => PIXI.loader.add(path));
   }
 
   addContainersToStage() {
