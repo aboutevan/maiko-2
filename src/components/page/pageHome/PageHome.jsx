@@ -1,12 +1,12 @@
 import React from 'react';
 import { LayoutMain } from 'layout';
 import { CounterContainer } from 'container';
+import { HeroCanvas } from 'presentation';
 
 const PageHome = () => (
   <LayoutMain>
+    <HeroCanvas />
     <div className="page-about main-row">
-      <h2>Home Page</h2>
-      <CounterContainer />
     </div>
   </LayoutMain>
 );
