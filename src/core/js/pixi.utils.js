@@ -1,61 +1,66 @@
-const context = require.context("../../assets/img/", true, /\.png$/);
-console.log(context);
+export function spritePaths() {
+  const context = require.context("img/", true, /\.png$/); // img set in webpack alias
   const lettersObj = {};
+
   context.keys().forEach(function (key) {
-      const newObjKey = key.replace(/[./\-_(png|jpg)]/g,"")
-      lettersObj[newObjKey] = context(key);
+    const newObjKey = key.replace(/[./\-_(png|jpg)]/g,"")
+    lettersObj[newObjKey] = context(key);
   });
 
-export const spritePaths = [
- lettersObj.mbase,
- lettersObj.mfade,
- lettersObj.abase,
- lettersObj.afade,
- lettersObj.ibase,
- lettersObj.ifade,
- lettersObj.kbase,
- lettersObj.kfade,
- lettersObj.obase,
- lettersObj.ofade,
- lettersObj.hbase,
- lettersObj.hfade,
- lettersObj.cbase,
- lettersObj.cfade,
- lettersObj.ismbase,
- lettersObj.ismfade,
- lettersObj.bbase,
- lettersObj.bfade,
- lettersObj.asmbase,
- lettersObj.asmfade,
-  // japanese characters
- lettersObj.maibase,
- lettersObj.maifade,
- lettersObj.kobase,
- lettersObj.kofade,
- lettersObj.chbase,
- lettersObj.chfade,
- lettersObj.iibase,
- lettersObj.iifade,
- lettersObj.babase,
- lettersObj.bafade,
-  // background
-  //lettersObj.darkness2,
-  //lettersObj.darkness3,
-  //lettersObj.darkness4,
-  //lettersObj.darkness5,
-  //lettersObj.darkness6,
-  //lettersObj.darkness7,
-  //lettersObj.darkness8,
-  //lettersObj.darkness9,
- lettersObj.darkness10,
-  // displacement
- lettersObj.displacement,
-  //lettersObj.displacement2,
-  //lettersObj.displacement3,
-  //lettersObj.displacement4,
- lettersObj.displacement5,
-  // 'displacement-7,
-];
+  return lettersObj;
+};
+
+
+// export const spritePaths = [
+//  lettersObj.mbase,
+//  lettersObj.mfade,
+//  lettersObj.abase,
+//  lettersObj.afade,
+//  lettersObj.ibase,
+//  lettersObj.ifade,
+//  lettersObj.kbase,
+//  lettersObj.kfade,
+//  lettersObj.obase,
+//  lettersObj.ofade,
+//  lettersObj.hbase,
+//  lettersObj.hfade,
+//  lettersObj.cbase,
+//  lettersObj.cfade,
+//  lettersObj.ismbase,
+//  lettersObj.ismfade,
+//  lettersObj.bbase,
+//  lettersObj.bfade,
+//  lettersObj.asmbase,
+//  lettersObj.asmfade,
+//   // japanese characters
+//  lettersObj.maibase,
+//  lettersObj.maifade,
+//  lettersObj.kobase,
+//  lettersObj.kofade,
+//  lettersObj.chbase,
+//  lettersObj.chfade,
+//  lettersObj.iibase,
+//  lettersObj.iifade,
+//  lettersObj.babase,
+//  lettersObj.bafade,
+//   // background
+//   //lettersObj.darkness2,
+//   //lettersObj.darkness3,
+//   //lettersObj.darkness4,
+//   //lettersObj.darkness5,
+//   //lettersObj.darkness6,
+//   //lettersObj.darkness7,
+//   //lettersObj.darkness8,
+//   //lettersObj.darkness9,
+//  lettersObj.darkness10,
+//   // displacement
+//  lettersObj.displacement,
+//   //lettersObj.displacement2,
+//   //lettersObj.displacement3,
+//   //lettersObj.displacement4,
+//  lettersObj.displacement5,
+//   // 'displacement-7,
+// ];
 
 
 export function scaleSpriteToCanvas(spr, canvas) {

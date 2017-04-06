@@ -24,6 +24,7 @@ const config = {
       page: path.resolve(__dirname, "../src/components/page"),
       config: path.resolve(__dirname, "../src/config"),
       core: path.resolve(__dirname, "../src/core"),
+      img: path.resolve(__dirname, "../src/assets/img"),
     }
   },
 
@@ -34,7 +35,7 @@ const config = {
   },
 
   devServer: {
-    // contentBase: path.resolve(__dirname, '../src/'),
+    contentBase: path.resolve(__dirname, '../src/'),
     historyApiFallback: true,
     stats: { colors: true},
     host: 'localhost',

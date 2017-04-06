@@ -18,8 +18,16 @@ module.exports = function (env) {
         loader: "html-loader"
     },
     {
-        test: /\.(png|jpg)$/,
-        loader: "url-loader"
+      test: /\.(png|jpg|svg)$/,
+      use: [{
+        loader: "file-loader",
+        options: {
+          name: 'assets/img/[name].[ext]'
+        },
+        // query: {
+        //   useRelativeUrl: true
+        // }
+      }]
     },
     {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,

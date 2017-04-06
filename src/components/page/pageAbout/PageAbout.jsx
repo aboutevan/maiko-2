@@ -1,8 +1,9 @@
 import React from 'react';
 import { LayoutMain } from 'layout';
-// import * as images from '../../../assets/img/a-base.png';
+import * as images from 'img/a-base.png';
+// console.log(images);
 
-  // var context = require.context("../../../assets/img/", true, /\.png$/);
+  // var context = require.context("img/", true, /\.png$/);
   //   var obj = {};
   //   context.keys().forEach(function (key) {
   //       const newObjKey = key.replace(/[./\-_(png|jpg)]/g,"")
