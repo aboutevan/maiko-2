@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import Routes from './Routes';
 
 const Root = ({ store, history }) => (
-  <Provider store={store}>
+  <Provider store={store} key={Math.random()}>
     <ConnectedRouter history={history}>
       <Routes />
     </ConnectedRouter>

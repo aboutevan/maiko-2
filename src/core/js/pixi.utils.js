@@ -1,3 +1,4 @@
+/* eslint-disable */
 export function spritePaths() {
   const context = require.context("img/", true, /\.png$/); // img set in webpack alias
   const lettersObj = {};

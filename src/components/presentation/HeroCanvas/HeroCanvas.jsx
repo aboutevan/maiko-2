@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { scaleSpriteToCanvas, spritePaths, positionSprite, spriteOnMouseMove } from 'core/js/pixi.utils';
 import * as pixi from 'pixi.js';
@@ -9,15 +10,17 @@ export default class HeroCanvas extends Component {
   constructor(props) {
     super(props);
 
+
     this.settings = {
       transition: 3,
       speed: 1,
-      dispScale: 20,
+      dispScale: 200,
       dispX: false,
       dispY: true,
       count: 0,
-      alpha: 1,
+      alpha: 113, 
     };
+
 
     // dispose of appended elements while hot reloading
     if (module.hot) {
@@ -34,18 +37,18 @@ export default class HeroCanvas extends Component {
     // apps - the scripts won't be passed to our Node server and
     // result in undefined errors - not the greatest solution
     // const pixi = require('pixi.js');
-    pixi.utils.skipHello(); // disable pixi banner in console
+    // pixi.utils.skipHello(); // disable pixi banner in console
 
-    // define all cached variables
-    const app = new pixi.Application();
+    // // define all cached variables
+    // this.pixiApp = new pixi.Application(window.innerWidth, window.innerHeight);
 
-    const sprites = spritePaths();
+    // const sprites = spritePaths();
 
-    const bunny = pixi.Sprite.fromImage(sprites.abase);
+    // const bunny = pixi.Sprite.fromImage(sprites.abase);
 
-    bunny.anchor.set(0.5);
+    // bunny.anchor.set(0.5);
 
-    app.stage.addChild(bunny);
+    // app.stage.addChild(bunny);
 
     // append it to component
     // pixi generates its own canvas element, which has to be
@@ -55,13 +58,30 @@ export default class HeroCanvas extends Component {
     // in one component, instead creating a component just to append to
     // another.  If we weren't using pixi, we could just render a canvas
     // element directly
-    this.component.appendChild(app.renderer.view);
+    // 
+    
+    this.pixiApp = new pixi.Application(window.innerWidth, window.innerHeight);
+    this.renderer = this.pixiApp.renderer;
+    this.stage = this.pixiApp.stage;
+    this.bgContainer = new pixi.Container();
+
+    const sprites = spritePaths();
+
+    const bunny = pixi.Sprite.fromImage(sprites.abase);
+
+    bunny.anchor.set(0.2);
+
+    this.stage.addChild(bunny);
+
+    this.component.appendChild(this.renderer.view);
 
     // manipulate the pixi canvas
 
   }
 
-  
+
+
+
   render() {
     return (
       <div
