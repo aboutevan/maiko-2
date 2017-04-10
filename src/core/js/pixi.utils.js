@@ -1,18 +1,14 @@
-/* eslint-disable */
 export function spritePaths() {
-  const context = require.context("img/", true, /\.(png|jpg)$/); // img set in webpack alias
+  const context = require.context('img/', true, /\.(png|jpg)$/); // img set in webpack alias
   const lettersObj = {};
 
-  context.keys().forEach(function (key) {
+  context.keys().forEach((key) => {
     const newObjKey = key.replace(/\.(png|jpg)/g, '').replace(/[./\-_]/g, '');
     lettersObj[newObjKey] = context(key);
   });
 
   return lettersObj;
-};
-
-console.log(spritePaths())
-
+}
 
 // export const spritePaths = [
 //  lettersObj.mbase,
