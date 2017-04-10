@@ -12,7 +12,7 @@ const PageHome = () => (
       </div>
       <div className="page-home__content">
         {GalleryConfig.map((image, i) => (
-            <PortImage key={i} index={i + 1} url={image.url} title={image.title} />
+          <PortImage key={image.url} index={i + 1} url={image.url} title={image.title} />
           ))}
       </div>
     </div>
