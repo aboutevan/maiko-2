@@ -25,6 +25,13 @@ const config = {
       config: path.resolve(__dirname, "../src/config"),
       core: path.resolve(__dirname, "../src/core"),
       img: path.resolve(__dirname, "../src/assets/img"),
+      // TweenLite: path.resolve(__dirname, '../node_modules', 'gsap/src/uncompressed/TweenLite.js'),
+      // TweenMax: path.resolve(__dirname, '../node_modules', 'gsap/src/uncompressed/TweenMax.js'),
+      // TimelineLite: path.resolve(__dirname, '../node_modules', 'gsap/src/uncompressed/TimelineLite.js'),
+      // TimelineMax: path.resolve(__dirname, '../node_modules', 'gsap/src/uncompressed/TimelineMax.js'),
+      // ScrollMagic: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
+      // ScrollMagicGSAP: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'),
+      // debugAddIndicators: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
     }
   },
 
