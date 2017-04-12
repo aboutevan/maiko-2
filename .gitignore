@@ -41,3 +41,4 @@ babel-cache
 dist
 .idea
 .netlify
+plain-report.txt
