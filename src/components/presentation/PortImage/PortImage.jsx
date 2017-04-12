@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import React from 'react';
 import * as ScrollMagic from 'ScrollMagic';
 import 'ScrollMagicGSAP';
 import 'TweenMax';
@@ -10,10 +9,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 class PortImage extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
   createScene() {
     const portElement = `.port-image--${this.props.index}`;
 
@@ -21,22 +16,18 @@ class PortImage extends Component {
       addIndicators: false
     });
 
-    // const tween = TweenMax.to(this.component, 0.5, {
-    //   x: '100%'
-    // })
+    let element = { y: 0 };
 
-    // let element = { y: 0 };
+    function applyTransform () {
+        TweenMax.set(portElement, {
+        y: `-${element.y}%`
+      });
+    };
 
-    // function applyBlur () {
-    //     TweenMax.set(portElement, {
-    //     y: `-${element.y}%`
-    //   });
-    // };
-
-    // const tween = TweenMax.to(element, 0.8, {
-    //   y: 100,
-    //   onUpdate: applyBlur
-    // });
+    const tween = TweenMax.to(element, 1.2, {
+      y: Math.max(Math.random(), 0.6) * 100,
+      onUpdate: applyTransform
+    });
 
     new ScrollMagic.Scene({
       offset: 0,
@@ -44,10 +35,7 @@ class PortImage extends Component {
       triggerHook: 1,
       duration: window.innerHeight * 2,
     })
-    .setTween(portElement, 1, {
-      y: `-${Math.max(Math.random(), 0.5) * 100}%`
-    })
-    // .setTween(tween)
+    .setTween(tween)
     .addTo(sceneController);
 
 
@@ -69,12 +57,6 @@ class PortImage extends Component {
     );
   }
 }
-
-// const PortImage = ({ index, url, title }) => (
-//   <div className={`port-image port-image--${index}`}>
-//     <img src={`/assets/img/${url}`} alt={title} />
-//   </div>
-// );
 
 PortImage.propTypes = {
   url: React.PropTypes.string.isRequired,
