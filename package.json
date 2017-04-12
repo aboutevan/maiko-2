@@ -101,6 +101,7 @@
     "stylelint-webpack-plugin": "^0.7.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
+    "webpack-bundle-size-analyzer": "^2.6.0",
     "webpack-dev-server": "^2.4.1"
   }
 }

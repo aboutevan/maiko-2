@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin;
 
 module.exports = function (env) {
 
@@ -16,7 +17,7 @@ module.exports = function (env) {
         BROWSER: true
       }
     }),
-    // new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
+    new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.bundle.js"}),
     new HtmlWebpackPlugin({
         filename: "index.html",
         template: path.resolve(__dirname, "../../src/index.tpl.html"),
@@ -33,7 +34,8 @@ module.exports = function (env) {
         files: ['**/*.sass'],
         syntax: 'sugarss',
         failOnError: false,
-      })
+      }),
+      new WebpackBundleSizeAnalyzerPlugin(path.resolve(__dirname, '../../plain-report.txt'))
     );
   } else {
     plugins.push(
