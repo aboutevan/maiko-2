@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import React from 'react';
 import * as ScrollMagic from 'ScrollMagic';
 import 'ScrollMagicGSAP';
-// import { setTween, TweenMax } from 'gsap';
+import 'TweenMax';
 
 if (process.env.NODE_ENV !== 'production') {
   require('debugAddIndicators');
@@ -15,6 +15,8 @@ class PortImage extends Component {
   // }
 
   createScene() {
+    const portElement = `.port-image--${this.props.index}`;
+
     const sceneController = new ScrollMagic.Controller({
       addIndicators: false
     });
@@ -23,18 +25,31 @@ class PortImage extends Component {
     //   x: '100%'
     // })
 
+    // let element = { y: 0 };
+
+    // function applyBlur () {
+    //     TweenMax.set(portElement, {
+    //     y: `-${element.y}%`
+    //   });
+    // };
+
+    // const tween = TweenMax.to(element, 0.8, {
+    //   y: 100,
+    //   onUpdate: applyBlur
+    // });
+
     new ScrollMagic.Scene({
       offset: 0,
-      triggerElement: `.port-image--${this.props.index}`,
+      triggerElement: portElement,
       triggerHook: 1,
       duration: window.innerHeight * 2,
     })
-    .setTween(`.port-image--${this.props.index}`, 0.5, {
+    .setTween(portElement, 1, {
       y: `-${Math.max(Math.random(), 0.5) * 100}%`
     })
+    // .setTween(tween)
     .addTo(sceneController);
 
-    console.log(this.component.className);
 
   }
 
