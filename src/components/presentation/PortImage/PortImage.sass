@@ -1,13 +1,15 @@
+$top-offset: 10vw
+
 .port-image
   display: inline-block
   box-shadow: 0 0 8vw 2vw rgba(0, 0, 0, 0.4)
   background: rgb(2, 2, 6)
 
   @include breakpoint(medium)
-    position: relative
-    transition: all 0.15s ease
+    position: absolute
+    transition: all 0.2s linear
     opacity: 0.4
-    margin-top: 5vw
+    // margin-top: 5vw
 
     &::before
       position: absolute
@@ -30,18 +32,17 @@
       width: 35%
 
     &--2
-      // transform: translate(-80px, -100px)
-      top:  -30vw
+      top: calc(2 * #{$top-offset})
       margin-left: 60%
       width: 40%
 
     &--3
-      top: -70vw
+      top: calc(7 * #{$top-offset})
       margin-left: 15%
       width: 40%
 
     &--4
-      top: -95vw
+      top: calc(9 * #{$top-offset})
       margin-left: 45%
       width: 25%
 

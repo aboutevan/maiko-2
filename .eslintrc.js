@@ -17,5 +17,16 @@ module.exports = {
   },
   env: {
     'browser': true
+  },
+  globals: {
+    'TweenMax': true,
+    'TweenLite': true,
+    'TimelineMax': true,
+    'TimelineLite': true,
+    'Power0': true,
+    'Power1': true,
+    'Power2': true,
+    'Power3': true,
+    'Power4': true,
   }
 }
