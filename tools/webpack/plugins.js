@@ -23,6 +23,7 @@ module.exports = function (env) {
         template: path.resolve(__dirname, "../../src/index.tpl.html"),
         inject: "body"
     }),
+    new WebpackBundleSizeAnalyzerPlugin(path.resolve(__dirname, '../../plain-report.txt'))
   ];
 
   if (env === 'development') {
@@ -34,8 +35,7 @@ module.exports = function (env) {
         files: ['**/*.sass'],
         syntax: 'sugarss',
         failOnError: false,
-      }),
-      new WebpackBundleSizeAnalyzerPlugin(path.resolve(__dirname, '../../plain-report.txt'))
+      })
     );
   } else {
     plugins.push(

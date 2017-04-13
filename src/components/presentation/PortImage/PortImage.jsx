@@ -55,7 +55,9 @@ class PortImage extends Component {
         // you could set props for attributes
         ref={(component) => { this.component = component; }}
       >
-        <img src={`/assets/img/${this.props.url}`} alt={this.props.title} />
+        <div className="port-image__inner">
+          <img className="port-image__image" src={`/assets/img/${this.props.url}`} alt={this.props.title} />
+        </div>
       </div>
     );
   }

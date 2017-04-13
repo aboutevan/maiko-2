@@ -31,7 +31,8 @@ const config = {
       TimelineMax: path.resolve(__dirname, '../node_modules', 'gsap/src/minified/TimelineMax.min.js'),
       ScrollMagic: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
       ScrollMagicGSAP: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'),
-      debugAddIndicators: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js')
+      debugAddIndicators: path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js'),
+      pixi: path.resolve(__dirname, '../node_modules', 'pixi.js/dist/pixi.min.js'),
     }
   },
 

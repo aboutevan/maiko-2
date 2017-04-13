@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { scaleSpriteToCanvas, spritePaths, positionSprite, spriteOnMouseMove } from 'core/js/pixi.utils';
 // import * as PIXI from 'pixi.js';
-import {
+import {  // eslint-disable-line import/no-extraneous-dependencies
   Container,
   utils,
   Application,
@@ -10,7 +10,7 @@ import {
   filters,
   Texture,
   WRAP_MODES,
-  } from 'pixi.js';
+  } from 'pixi';
 
 // LOADING BAR https://github.com/kittykatattack/learningPIXI/blob/master/README.md
 
@@ -33,15 +33,6 @@ export default class HeroCanvas extends Component {
     this.renderer.view.style.minHeight = 697;
     this.renderer.autoResize = true;
     this.sprites = spritePaths();
-
-    // const sprites = spritePaths();
-
-    // const bunny = Sprite.fromImage(sprites.abase);
-
-    // bunny.anchor.set(0.7);
-
-    // this.stage.addChild(bunny);
-
 
     this.settings = {
       transition: 3,
@@ -68,19 +59,6 @@ export default class HeroCanvas extends Component {
     // use scripts meant for use in browser in our server-side
     // apps - the scripts won't be passed to our Node server and
     // result in undefined errors - not the greatest solution
-    // const PIXI = require('js');
-    // utils.skipHello(); // disable PIXI banner in console
-
-    // // define all cached variables
-    // this.PIXIApp = new Application(window.innerWidth, window.innerHeight);
-
-    // const sprites = spritePaths();
-
-    // const bunny = Sprite.fromImage(sprites.abase);
-
-    // bunny.anchor.set(0.5);
-
-    // app.stage.addChild(bunny);
 
     // append it to component
     // PIXI generates its own canvas element, which has to be
