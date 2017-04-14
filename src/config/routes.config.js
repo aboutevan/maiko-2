@@ -15,4 +15,12 @@ export default [
     component: 'AboutPage',
     childRoutes: {},
   },
+  {
+    name: 'studioShots',
+    path: '/studio-shots',
+    visibleInMenu: true,
+    menuTitle: 'Studio Shots',
+    component: 'PageStudioShots',
+    childRoutes: {},
+  },
 ];

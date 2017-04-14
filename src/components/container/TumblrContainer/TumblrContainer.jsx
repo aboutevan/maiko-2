@@ -4,9 +4,13 @@ import { bindActionCreators } from 'redux';
 import * as actions from './actions';
 
 class TumblrContainer extends Component {
+
+  static propTypes = {
+    fetchTumblr: React.PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -18,7 +22,7 @@ class TumblrContainer extends Component {
   render() {
     return (
       <div>
-        <a onClick={this.handleClick}>Click Me</a>
+        <button onClick={this.handleClick} role="button">Click Me</button>
       </div>
     );
   }

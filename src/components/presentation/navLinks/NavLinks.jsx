@@ -8,7 +8,7 @@ const NavLinks = props => (
       RoutesConfig.map(item => (
         <li className="nav-overlay__link-item" key={item.path}>
           <Link onClick={props.handleClick} to={item.path}>
-            <p>{item.name}</p>
+            <p>{item.menuTitle}</p>
           </Link>
         </li>
       ))

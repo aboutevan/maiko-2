@@ -2,18 +2,17 @@ import React from 'react';
 import { LayoutMain } from 'layout';
 import { TumblrContainer } from 'container';
 
-const PageAbout = () => (
+const PageStudioShots = () => (
   <LayoutMain>
     <div className="page-about main-row">
       <div>
-        <h2>About Page</h2>
-        <h2>About Page</h2>
-        <h2>About Page</h2>
-        <h2>About Page</h2>
+        <h2>Studio Shots</h2>
+        <h2>Studio Shots</h2>
+        <h2>Studio Shots</h2>
         <TumblrContainer />
       </div>
     </div>
   </LayoutMain>
 );
 
-export default PageAbout;
+export default PageStudioShots;

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_TUMBLR, ROOT_URL } from './constants';
 
-export function fetchTumblr() {
+export default function fetchTumblr() {
   const request = axios.get(ROOT_URL);
 
   console.log('Request:', request);
@@ -9,5 +9,5 @@ export function fetchTumblr() {
   return {
     type: FETCH_TUMBLR,
     payload: request,
-  }
+  };
 }

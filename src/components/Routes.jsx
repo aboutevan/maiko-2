@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Route, IndexRoute } from 'react-router';
 import { Route } from 'react-router-dom';
-import { PageHome, PageAbout } from 'page';
+import { PageHome, PageAbout, PageStudioShots } from 'page';
 import { RoutesConfig } from 'config';
 
 
@@ -25,6 +25,7 @@ const Routes = () => (
   <div>
     <Route exact path={routesObj.home.path} component={PageHome} />
     <Route exact path={routesObj.about.path} component={PageAbout} />
+    <Route exact path={routesObj.studioShots.path} component={PageStudioShots} />
   </div>
 );
 
