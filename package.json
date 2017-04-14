@@ -25,6 +25,7 @@
     "sass"
   ],
   "dependencies": {
+    "axios": "^0.16.1",
     "history": "^4.6.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -36,6 +37,7 @@
     "react-router-transition": "^0.0.6",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
+    "redux-promise": "^0.5.3",
     "upgrade": "^1.1.0",
     "yarn": "^0.18.2"
   },
