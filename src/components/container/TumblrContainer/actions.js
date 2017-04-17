@@ -12,10 +12,10 @@ import { FETCH_TUMBLR, ROOT_URL } from './constants';
 
 export default function fetchTumblr(limit = 2, offset) {
   return dispatch => (
-    axios.get(`${ROOT_URL}&limit=${limit}&offset=0`)
+    axios.get(`${ROOT_URL}&limit=${limit}&offset=${offset}`)
       .then(res => dispatch({
         type: FETCH_TUMBLR,
-        payload: res.data
+        payload: res.data,
       }))
   )
 }
