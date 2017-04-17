@@ -1,35 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from './actions';
+import Masonry from 'react-masonry-component';
+import fetchTumblr from './actions';
 
 class TumblrContainer extends Component {
 
-  static propTypes = {
-    fetchTumblr: React.PropTypes.func.isRequired,
-  }
+  // static propTypes = {
+  //   fetchTumblr: React.PropTypes.func.isRequired,
+  // }
 
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = { images: []}
+
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
 
   handleClick(event) {
-    event.preventDefault();
+    // event.preventDefault();
+    this.props.fetchTumblr();
+    console.log(this.props);
+  }
+
+  componentDidMount() {
     this.props.fetchTumblr();
   }
 
   render() {
-    return (
+    if(!this.props.tumblrImages[0]) {
+      return (
+        <h1>shit</h1>
+      );
+    } else {
+      return (
       <div>
-        <button onClick={this.handleClick} role="button">Click Me</button>
+        <Masonry
+          className={'whatever'}
+          options={
+            {columnWidth: 50,
+              itemSelector: '.fuck'}
+          }
+        >
+          {
+            this.props.tumblrImages.map(arr => {
+              console.log(arr.length)
+              return arr
+            }).map((image, index) => {
+              console.log(image)
+              // return (
+              // <img className="fuck" key={image.post_url} src={image.photos[0].alt_sizes[1].url} />
+              // );
+          })}
+        </Masonry>
+        <button onClick={() => this.handleClick()} role="button">Click Me</button>
       </div>
     );
+    }
+  }
+}
+
+// Fetching App state
+// TumblrContainer is key in rootReducer obj
+function mapStateToProps(state) {
+  return {
+    tumblrImages: state.TumblrContainer
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ ...actions }, dispatch);
+  return bindActionCreators({ fetchTumblr }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(TumblrContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TumblrContainer);
