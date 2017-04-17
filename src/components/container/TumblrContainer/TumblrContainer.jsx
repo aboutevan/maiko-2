@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Masonry from 'react-masonry-component';
-import fetchTumblr from './actions';
+import { fetchTumblr, isLoading } from './actions';
 
 class TumblrContainer extends Component {
 
@@ -21,6 +21,7 @@ class TumblrContainer extends Component {
 
   componentDidMount() {
     this.props.fetchTumblr();
+    console.log(this.props.tumblrLoading);
   }
 
   handleClick(event) {
@@ -45,6 +46,12 @@ class TumblrContainer extends Component {
         <h1>shit</h1>
       );
     }
+
+    // if (this.props.tumblrLoading) {
+    //   return (
+    //     <h1>LOADING</h1>
+    //   );
+    // }
     return (
       <div>
         <Masonry
@@ -62,8 +69,11 @@ class TumblrContainer extends Component {
   }
 }
 
-function mapStateToProps({ TumblrContainer }) {
-  return { tumblr: TumblrContainer[0] };
+function mapStateToProps({ TumblrContainer, tumblrLoading }) {
+  return {
+    tumblr: TumblrContainer[0],
+    tumblrLoading
+  };
 }
 
 function mapDispatchToProps(dispatch) {

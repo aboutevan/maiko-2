@@ -1,9 +1,18 @@
-import { FETCH_TUMBLR } from './constants';
+import { FETCH_TUMBLR, IS_LOADING } from './constants';
 
-export default function (state = [], action) {
+export function isLoading(state = false, action) {
+  switch (action.type) {
+    case IS_LOADING:
+    console.log('FIRED', state)
+      return action.isLoading;
+    default:
+      return state;
+  }
+}
+
+export function fetchTumblr(state = [], action) {
   switch (action.type) {
     case FETCH_TUMBLR:
-      console.log(action.payload.response.total_posts);
       return [action.payload.response, ...state];
     default:
       return state;
