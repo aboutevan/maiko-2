@@ -8,20 +8,26 @@ class TumblrContainer extends Component {
 
   static propTypes = {
     fetchTumblr: React.PropTypes.func.isRequired,
-    tumblr: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+    tumblr: React.PropTypes.objectOf(React.PropTypes.any)
+  }
+
+  static defaultProps = {
+    tumblr: null
   }
 
   constructor(props) {
     super(props);
 
-    this.state = { images: [] };
+    this.state = {
+      images: [],
+      value: true,
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchTumblr();
-    console.log(this.props.tumblrLoading);
   }
 
   handleClick(event) {
@@ -32,7 +38,9 @@ class TumblrContainer extends Component {
   }
 
   renderImages() {
-    this.props.tumblr.posts.map(data => this.state.images.push(data));
+    this.props.tumblr.posts.map(data => {
+      this.state.images.push(data)
+    });
     return (
       this.state.images.map((data, i) => (
         <img className="fuck" key={`data.post_url${i}`} alt="" src={data.photos[0].alt_sizes[1].url} />
@@ -43,15 +51,9 @@ class TumblrContainer extends Component {
   render() {
     if (!this.props.tumblr) {
       return (
-        <h1>shit</h1>
+        <h1>LoadingComponent</h1>
       );
     }
-
-    // if (this.props.tumblrLoading) {
-    //   return (
-    //     <h1>LOADING</h1>
-    //   );
-    // }
     return (
       <div>
         <Masonry
@@ -69,10 +71,9 @@ class TumblrContainer extends Component {
   }
 }
 
-function mapStateToProps({ TumblrContainer, tumblrLoading }) {
+function mapStateToProps({ TumblrContainer }) {
   return {
-    tumblr: TumblrContainer[0],
-    tumblrLoading
+    tumblr: TumblrContainer[0]
   };
 }
 

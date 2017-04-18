@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_TUMBLR, ROOT_URL, IS_LOADING } from './constants';
+import { FETCH_TUMBLR, ROOT_URL, IS_LOADING, TUMBLR_SUCCESS } from './constants';
 
 // export default function fetchTumblr(limit = 2, offset) {
 //   const request = axios.get(`${ROOT_URL}&limit=${limit}&offset=0`);
@@ -17,14 +17,22 @@ export function isLoading(bool) {
   }
 }
 
+export function tumblrSuccess(data) {
+  return {
+    type: FETCH_TUMBLR,
+    payload: data
+  }
+}
+
 export  function fetchTumblr(limit = 2, offset) {
   return dispatch => {
     dispatch(isLoading(true));
 
     axios.get(`${ROOT_URL}&limit=${limit}&offset=${offset}`)
-      .then(res => dispatch({
-        type: FETCH_TUMBLR,
-        payload: res.data,
-      }))
+      .then(res => {
+        dispatch(isLoading(false));
+        return res;
+      })
+      .then(res => dispatch(tumblrSuccess(res.data)))
   }
 }
