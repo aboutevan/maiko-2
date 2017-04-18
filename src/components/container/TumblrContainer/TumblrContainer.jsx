@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Masonry from 'react-masonry-component';
-import { fetchTumblr, isLoading } from './actions';
+import { fetchTumblr } from './actions';
+import { LoadingContainer } from 'container';
 
 class TumblrContainer extends Component {
 
@@ -65,6 +66,7 @@ class TumblrContainer extends Component {
         >
           { this.renderImages() }
         </Masonry>
+        <LoadingContainer />
         <button onClick={this.handleClick} role="button">Click Me</button>
       </div>
     );
