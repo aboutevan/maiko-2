@@ -92,17 +92,16 @@ export default class HeroCanvas extends Component {
   }
 
   componentWillUnmount() {
-    this.pixi = null;
-    this.unmounted = true;
-    this.pixiApp = null;
-    this.stage = null;
-    this.bgContainer = null;
-    this.layerAll = null;
-    this.layerRight = null;
-    this.layerLeft = null;
+    // this.unmounted = true;
+    console.log(this.pixiApp);
 
-    this.component.removeChild(this.renderer.view);
-    this.renderer = null;
+    // this.animate = null;
+    this.pixiApp.destroy(true);
+    this.stage.destroy(true);
+    // this.stage = null;
+
+    // this.component.removeChild(this.renderer.view);
+    // this.renderer = null;
 
   }
 
