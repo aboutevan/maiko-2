@@ -1,6 +1,5 @@
 import React from 'react';
 import { LayoutMain } from 'layout';
-import { TumblrContainer } from 'container';
 
 const PageAbout = () => (
   <LayoutMain>
@@ -10,7 +9,6 @@ const PageAbout = () => (
         <h2>About Page</h2>
         <h2>About Page</h2>
         <h2>About Page</h2>
-        <TumblrContainer />
       </div>
     </div>
   </LayoutMain>
