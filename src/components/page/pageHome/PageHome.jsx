@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { LayoutMain } from 'layout';
 import { HeroCanvas, PortImage } from 'presentation';
 import { GalleryConfig } from 'config';

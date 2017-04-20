@@ -10,7 +10,7 @@ export default function configureStore(history) {
   const middleware = [
     routerMiddleware(history),
     thunk,
-    ReduxPromise
+    ReduxPromise,
   ];
 
   if (process.env.NODE_ENV !== 'production') {

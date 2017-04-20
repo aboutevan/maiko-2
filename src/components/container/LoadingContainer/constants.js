@@ -1,1 +1,2 @@
-export const IS_LOADING = 'IS_LOADING';
+const IS_LOADING = 'IS_LOADING';
+export default IS_LOADING;

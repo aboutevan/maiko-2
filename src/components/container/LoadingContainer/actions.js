@@ -1,8 +1,8 @@
-import { IS_LOADING } from './constants';
+import IS_LOADING from './constants';
 
-export function isLoading(bool) {
+export default function isLoading(bool) {
   return {
     type: IS_LOADING,
     isLoading: bool,
-  }
+  };
 }

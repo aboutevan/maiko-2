@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { isLoading } from './actions';
 
 class LoadingContainer extends Component {
+
+  static propTypes = {
+    isLoading: React.PropTypes.bool.isRequired,
+  }
+
   render() {
     if (this.props.isLoading) {
       return (
         <h1>LOADING</h1>
       );
-    } else {
-      return null;
     }
+    return null;
   }
 }
 
 function mapStateToProps({ isLoading }) {
   return {
     isLoading,
-  }
+  };
 }
 
 export default connect(mapStateToProps)(LoadingContainer);

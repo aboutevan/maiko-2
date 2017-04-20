@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
+import { ScrollToTop } from 'presentation';
 import Routes from './Routes';
 
 const Root = ({ store, history }) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Routes />
+      <ScrollToTop>
+        <Routes />
+      </ScrollToTop>
     </ConnectedRouter>
   </Provider>
 );

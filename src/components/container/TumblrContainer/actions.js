@@ -1,8 +1,6 @@
 import axios from 'axios';
-import { FETCH_TUMBLR, ROOT_URL, TUMBLR_SUCCESS } from './constants';
-import { IS_LOADING } from '../LoadingContainer/constants';
-
-import { isLoading } from '../LoadingContainer/actions';
+import { FETCH_TUMBLR, ROOT_URL } from './constants';
+import isLoading from '../LoadingContainer/actions';
 
 // export function isLoading(bool) {
 //   return {
@@ -14,19 +12,19 @@ import { isLoading } from '../LoadingContainer/actions';
 export function tumblrSuccess(data) {
   return {
     type: FETCH_TUMBLR,
-    payload: data
-  }
+    payload: data,
+  };
 }
 
-export  function fetchTumblr(limit = 2, offset) {
-  return dispatch => {
+export function fetchTumblr(limit = 2, offset) {
+  return (dispatch) => {
     dispatch(isLoading(true));
 
     axios.get(`${ROOT_URL}&limit=${limit}&offset=${offset}`)
-      .then(res => {
+      .then((res) => {
         dispatch(tumblrSuccess(res.data));
         return res;
       })
-      .then(res => dispatch(isLoading(false)));
-  }
+      .then(() => dispatch(isLoading(false)));
+  };
 }

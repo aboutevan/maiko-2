@@ -1,4 +1,5 @@
-import { FETCH_TUMBLR, IS_LOADING } from './constants';
+import { FETCH_TUMBLR } from './constants';
+import IS_LOADING from '../LoadingContainer/constants';
 
 export function isLoading(state = false, action) {
   switch (action.type) {

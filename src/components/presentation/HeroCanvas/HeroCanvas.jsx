@@ -27,10 +27,6 @@ export default class HeroCanvas extends Component {
   //   // }
   // }
 
-  shouldComponentUpdate() {
-    return false;
-  }
-
   componentDidMount() {
     // scripts called in componentDidMount will not execute
     // until after component is rendered. This means we can
@@ -390,7 +386,7 @@ export default class HeroCanvas extends Component {
       if (this.unmounted) {
         // this is worth looking into -- are all functions
         // triggered again unecessarily on route change?
-        return
+        return;
       }
       this.renderer.resize(window.innerWidth, window.innerHeight);
       scaleSpriteToCanvas(this.background, this.renderer.view);
@@ -416,12 +412,11 @@ export default class HeroCanvas extends Component {
   }
 
   animate() {
-
-      if (this.bgDpSprite && this.layerDpSprite) {
+    if (this.bgDpSprite && this.layerDpSprite) {
       this.bgDpFilter.scale.x = this.settings.dispX ?
-        this.settings.transition * this.settings.dispScale : 0;
+      this.settings.transition * this.settings.dispScale : 0;
       this.bgDpFilter.scale.y = this.settings.dispY ?
-        this.settings.transition * (this.settings.dispScale + 10) : 0;
+      this.settings.transition * (this.settings.dispScale + 10) : 0;
 
       // this.bgDpFilter.scale.x += 0.4
       // this.bgDpSprite.x = Math.sin(this.settings.count * 0.15) * 200;

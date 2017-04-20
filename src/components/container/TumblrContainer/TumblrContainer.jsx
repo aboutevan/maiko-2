@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Masonry from 'react-masonry-component';
-import { fetchTumblr } from './actions';
 import { LoadingContainer } from 'container';
+import { fetchTumblr } from './actions';
 
 class TumblrContainer extends Component {
 
   static propTypes = {
     fetchTumblr: React.PropTypes.func.isRequired,
-    tumblr: React.PropTypes.objectOf(React.PropTypes.any)
+    tumblr: React.PropTypes.objectOf(React.PropTypes.any),
   }
 
   static defaultProps = {
-    tumblr: null
+    tumblr: null,
   }
 
   constructor(props) {
@@ -21,7 +21,6 @@ class TumblrContainer extends Component {
 
     this.state = {
       images: [],
-      value: true,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -29,6 +28,10 @@ class TumblrContainer extends Component {
 
   componentDidMount() {
     this.props.fetchTumblr();
+  }
+
+  componentWillUnmount() {
+    this.state.images = [];
   }
 
   handleClick(event) {
@@ -39,9 +42,11 @@ class TumblrContainer extends Component {
   }
 
   renderImages() {
-    this.props.tumblr.posts.map(data => {
-      this.state.images.push(data)
-    });
+    this.props.tumblr.posts.map(data => (
+       this.state.images.push(data)
+      ),
+    );
+    console.log('Rendering Images');
     return (
       this.state.images.map((data, i) => (
         <img className="fuck" key={`data.post_url${i}`} alt="" src={data.photos[0].alt_sizes[1].url} />
@@ -75,7 +80,7 @@ class TumblrContainer extends Component {
 
 function mapStateToProps({ TumblrContainer }) {
   return {
-    tumblr: TumblrContainer[0]
+    tumblr: TumblrContainer[0],
   };
 }
 

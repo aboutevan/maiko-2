@@ -1,6 +1,6 @@
-import { IS_LOADING } from './constants';
+import IS_LOADING from './constants';
 
-export function isLoading(state = false, action) {
+export default function isLoading(state = false, action) {
   switch (action.type) {
     case IS_LOADING:
       return action.isLoading;
