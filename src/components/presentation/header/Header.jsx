@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ThreeLineMenu, NavOverlay } from 'presentation';
+import { NavLinks } from 'presentation';
 
 export default class HeaderContainer extends Component {
 
@@ -22,8 +22,7 @@ export default class HeaderContainer extends Component {
   render() {
     return (
       <header className={this.state.className}>
-        <ThreeLineMenu className={this.state.className} handleClick={this.handleClick} />
-        <NavOverlay className={this.state.className} handleClick={this.handleClick} />
+        <NavLinks />
       </header>
     );
   }

@@ -13,10 +13,17 @@ class PortImage extends Component {
     this.createScene();
   }
 
+  componentWillUnmount() {
+    this.sceneController.destroy();
+    this.sceneController = null;
+    this.scene.destroy();
+    this.scene.null;
+  }
+
   createScene() {
     const portElement = `.port-image--${this.props.index}`;
 
-    const sceneController = new ScrollMagic.Controller({
+    this.sceneController = new ScrollMagic.Controller({
       addIndicators: false,
     });
 
@@ -33,19 +40,19 @@ class PortImage extends Component {
     //   onUpdate: applyTransform
     // });
 
-    const tween = TweenMax.to(portElement, 1, {
+    this.tween = TweenMax.to(portElement, 1, {
       ease: Power0.easeNone,
       y: `-${(Math.max(Math.random(), 0.4)) * 100}%`,
     });
 
-    new ScrollMagic.Scene({
+    this.scene = new ScrollMagic.Scene({
       offset: 0,
       triggerElement: portElement,
       triggerHook: 1,
-      duration: window.innerHeight * 2,
+      duration: 2000,
     })
-    .setTween(tween)
-    .addTo(sceneController);
+    .setTween(this.tween)
+    .addTo(this.sceneController);
   }
 
   render() {

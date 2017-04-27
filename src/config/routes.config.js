@@ -1,10 +1,11 @@
+import { PageHome, PageAbout, PageStudioShots } from 'page';
 export default [
   {
     name: 'home',
     path: '/',
     visibleInMenu: true,
     menuTitle: 'Home',
-    component: 'App',
+    component: PageHome,
     childRoutes: {},
   },
   {
@@ -12,7 +13,7 @@ export default [
     path: '/about',
     visibleInMenu: true,
     menuTitle: 'About',
-    component: 'AboutPage',
+    component: PageAbout,
     childRoutes: {},
   },
   {
@@ -20,7 +21,7 @@ export default [
     path: '/studio-shots',
     visibleInMenu: true,
     menuTitle: 'Studio Shots',
-    component: 'PageStudioShots',
+    component: PageStudioShots,
     childRoutes: {},
   },
 ];
