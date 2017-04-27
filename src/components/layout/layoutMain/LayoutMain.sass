@@ -9,50 +9,50 @@
   left: 0
   z-index: 1
 
-  // &__overlay
-  //   position: absolute
-  //   top: 0
-  //   right: -100%
-  //   bottom: 0
-  //   z-index: 9999
-  //   background: purple
-  //   width: 100%
-  //   height: 100%
-  //   transition: right 1s
+  &__overlay
+    position: absolute
+    top: 0
+    right: -100%
+    bottom: 0
+    z-index: 9999
+    background: purple
+    width: 100%
+    height: 100%
+    transition: right 1s
 
-  //   .example-enter &
-  //     transition: right 0
-  //     background: blue
-  //     right: 100%
+    .example-enter &
+      transition: right 0
+      background: blue
+      right: 100%
 
-  //   .example-enter.example-enter-active &
-  //     background: blue
-  //     right: 0
+    .example-enter.example-enter-active &
+      background: blue
+      right: 0
 
-  //   .example-leave &
-  //     background: red
-  //     right: 100%
+    .example-leave &
+      background: red
+      right: 100%
 
-  //   .example-leave.example-leave-active &
-  //     background: red
-  //     right: 0
+    .example-leave.example-leave-active &
+      background: red
+      right: 0
 
-//   &__content
-//     // transition-delay:  opacity 0.5s
-//     .example-enter &
-//       background: yellow
-//       opacity: 0
+  &__content
+    // transition-delay:  opacity 0.5s
+    .example-enter &
+      background: yellow
+      opacity: 0
 
-//     .example-enter.example-enter-active &
-//       opacity: 1
+    .example-enter.example-enter-active &
+      opacity: 1
 
-//     .example-leave &
-//       background: red
-//       opacity: 0
+    .example-leave &
+      background: red
+      opacity: 0
 
-//     .example-leave.example-leave-active &
-//       opacity: 1
-//       // transition: opacity 1s linear
+    .example-leave.example-leave-active &
+      opacity: 1
+      // transition: opacity 1s linear
 
 
 // .example-enter.example-appear-active
@@ -60,13 +60,13 @@
 
 
 .example-enter.example-enter-active
-  transition: all 2s ease-in
+  transition: all 20s ease-in
   background: green
   opacity: 0
 
 
 
 .example-leave.example-leave-active
-  transition: all 2s ease-in
+  transition: all 20s ease-in
   background: red
   opacity: 0

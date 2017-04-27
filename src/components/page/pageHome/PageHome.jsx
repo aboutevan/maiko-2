@@ -4,7 +4,6 @@ import { HeroCanvas, PortImage } from 'presentation';
 import { GalleryConfig } from 'config';
 
 const PageHome = () => (
-  <LayoutMain>
     <div className="page-home">
 
       <div className="page-home__hero">
@@ -16,7 +15,6 @@ const PageHome = () => (
           ))}
       </div>
     </div>
-  </LayoutMain>
 );
 
 export default PageHome;
