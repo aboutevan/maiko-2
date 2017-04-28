@@ -1,5 +1,5 @@
 import { routerReducer } from 'react-router-redux';
-import { LOCATION_CHANGE } from 'react-router';
+// import { LOCATION_CHANGE } from 'react-router';
 import { counterContainerReducer } from 'container/counterContainer/index';
 import { fetchTumblr } from 'container/TumblrContainer/reducers';
 import isLoading from 'container/LoadingContainer/reducers';
@@ -22,10 +22,10 @@ const appReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-  if (action.type === LOCATION_CHANGE) {
-    // reset state on route change
-    state = undefined; // eslint-disable-line
-  }
+  // if (action.type === LOCATION_CHANGE) {
+  //   // reset state on route change
+  //   state = undefined; // eslint-disable-line
+  // }
   return appReducer(state, action);
 };
 

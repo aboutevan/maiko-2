@@ -20,7 +20,9 @@ const store = configureStore(history);
 // render app
 render(
   <AppContainer >
-    <Root store={store} history={history} />
+    <div>
+      <Root store={store} history={history} />
+    </div>
   </AppContainer>,
   document.getElementById('root'),
 );
