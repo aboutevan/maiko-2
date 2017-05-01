@@ -9,7 +9,7 @@ export function tumblrSuccess(data) {
   };
 }
 
-export function fetchTumblr(limit = 2, offset) {
+export function fetchTumblr(limit = 3, offset) {
   return (dispatch) => {
     dispatch(isLoading());
 

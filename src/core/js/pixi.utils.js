@@ -61,7 +61,6 @@ export function spritePaths() {
 //   // 'displacement-7,
 // ];
 
-
 export function scaleSpriteToCanvas(spr, canvas) {
   const sprite = spr;
   const ratio = sprite.width / sprite.height;

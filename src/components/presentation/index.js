@@ -6,3 +6,4 @@ export HeroCanvas from './HeroCanvas/HeroCanvas';
 export PortImage from './PortImage/PortImage';
 export ScrollToTop from './ScrollToTop/ScrollToTop';
 export SlideTransition from './SlideTransition/SlideTransition';
+export TumblrImage from './TumblrImage/TumblrImage';

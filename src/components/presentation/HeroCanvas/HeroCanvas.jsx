@@ -370,12 +370,16 @@ export default class HeroCanvas extends Component {
     this.storeSpritePositions();
 
     // all mousemove events
+    if (this.unmounted) {
+      // this is worth looking into -- are all functions
+      // triggered again unecessarily on route change?
+      return;
+    }
+
     this.renderer.plugins.interaction.on('mousemove', (event) => {
       this.mouseX = event.data.global.x;
       this.mouseY = event.data.global.y;
     });
-
-    // scroll events
 
     window.addEventListener('scroll', () => {
       this.scrollPos = window.scrollY;

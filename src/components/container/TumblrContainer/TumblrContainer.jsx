@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Masonry from 'react-masonry-component';
+import { TumblrImage } from 'presentation';
 import { LoadingContainer } from 'container';
 import { fetchTumblr } from './actions';
 
@@ -27,29 +27,21 @@ class TumblrContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchTumblr();
-  }
-
-  componentWillUnmount() {
     this.state.images = [];
+    this.props.fetchTumblr();
   }
 
   handleClick(event) {
     event.preventDefault();
     if (this.state.images.length < this.props.tumblr.total_posts) {
-      this.props.fetchTumblr(2, this.state.images.length);
+      this.props.fetchTumblr(3, this.state.images.length);
     }
   }
 
-  renderImages() {
+  pushImagesToLocalStorage() {
     this.props.tumblr.posts.map(data => (
        this.state.images.push(data)
       ),
-    );
-    return (
-      this.state.images.map((data, i) => (
-        <img className="fuck" key={`data.post_url${i}`} alt="" src={data.photos[0].alt_sizes[1].url} />
-      ))
     );
   }
 
@@ -59,17 +51,10 @@ class TumblrContainer extends Component {
         <LoadingContainer />
       );
     }
+    this.pushImagesToLocalStorage();
     return (
       <div>
-        <Masonry
-          className={'whatever'}
-          options={{
-            columnWidth: 50,
-            itemSelector: '.fuck',
-          }}
-        >
-          { this.renderImages() }
-        </Masonry>
+        <TumblrImage images={this.state.images} />
         <LoadingContainer />
         <button onClick={this.handleClick} role="button">Click Me</button>
       </div>
@@ -77,9 +62,9 @@ class TumblrContainer extends Component {
   }
 }
 
-function mapStateToProps({ TumblrContainer }) {
+function mapStateToProps({ tumblr }) {
   return {
-    tumblr: TumblrContainer[0],
+    tumblr: tumblr[0],
   };
 }
 

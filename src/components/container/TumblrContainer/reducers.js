@@ -1,16 +1,6 @@
 import { FETCH_TUMBLR } from './constants';
-import IS_LOADING from '../LoadingContainer/constants';
 
-// export function isLoading(state = false, action) {
-//   switch (action.type) {
-//     case IS_LOADING:
-//       return action.isLoading;
-//     default:
-//       return state;
-//   }
-// }
-
-export function fetchTumblr(state = [], action) {
+export default function fetchTumblr(state = [], action) {
   switch (action.type) {
     case FETCH_TUMBLR:
       return [action.payload.response, ...state];

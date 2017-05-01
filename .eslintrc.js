@@ -28,5 +28,6 @@ module.exports = {
     'Power2': true,
     'Power3': true,
     'Power4': true,
+    'SlowMo': true,
   }
 }

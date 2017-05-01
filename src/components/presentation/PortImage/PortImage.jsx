@@ -17,7 +17,7 @@ class PortImage extends Component {
     this.sceneController.destroy();
     this.sceneController = null;
     this.scene.destroy();
-    this.scene.null;
+    this.scene = null;
   }
 
   createScene() {

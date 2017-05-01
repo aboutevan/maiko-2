@@ -1,13 +1,10 @@
 import React from 'react';
-// import { Route, IndexRoute } from 'react-router';
-// import { RouteTransition } from 'react-router-transition';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { Route } from 'react-router-dom';
-// import { PageHome, PageAbout, PageStudioShots } from 'page';
 import { RoutesConfig } from 'config';
 import { LayoutMain } from 'layout';
 
-const Routes = (props) => (
+const Routes = () => (
   <div>
     <LayoutMain>
 
@@ -18,7 +15,7 @@ const Routes = (props) => (
               transitionName="example"
               transitionEnterTimeout={500}
               transitionLeaveTimeout={500}
-              >
+            >
               {match && route.component}
             </CSSTransitionGroup>
           )}

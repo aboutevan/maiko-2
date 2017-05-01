@@ -1,2 +1,2 @@
-export RoutesConfig from './routes.config';
+export RoutesConfig from './routes.config.jsx';
 export GalleryConfig from './gallery.config';

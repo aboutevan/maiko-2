@@ -1,18 +1,21 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
+import React from 'react';
 import { connect } from 'react-redux';
 import { SlideTransition } from 'presentation';
 
 const SlideTransitionContainer = props => (
   <SlideTransition
-    position={props.slideTransition.hasChanged ? 'animate' : '' }
+    behavior={props.slideTransition.hasChanged ? 'animate' : ''}
   />
-)
+);
 
-function mapStateToProps ({slideTransition}) {
+SlideTransitionContainer.propTypes = {
+  slideTransition: React.PropTypes.objectOf(React.PropTypes.any).isRequired,
+};
+
+function mapStateToProps({ slideTransition }) {
   return {
-    slideTransition
-  }
+    slideTransition,
+  };
 }
 
 export default connect(mapStateToProps)(SlideTransitionContainer);
