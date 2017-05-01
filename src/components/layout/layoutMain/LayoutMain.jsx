@@ -1,14 +1,13 @@
 import React from 'react';
 import { Header } from 'presentation';
+import { SlideTransitionContainer } from 'container';
 
 // import './LayoutMain.sass';
 
 const LayoutMain = props => (
   <div className="layout-main">
     <Header />
-    <div className="layout-main__overlay">
-      <h1>FOREVER THIS IS A TEST</h1>
-    </div>
+    <SlideTransitionContainer />
     <main className="layout-main__content">
       {props.children}
     </main>

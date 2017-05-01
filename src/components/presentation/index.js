@@ -5,4 +5,4 @@ export NavLinks from './navLinks/NavLinks';
 export HeroCanvas from './HeroCanvas/HeroCanvas';
 export PortImage from './PortImage/PortImage';
 export ScrollToTop from './ScrollToTop/ScrollToTop';
-export NavigateButton from './NavigateButton/NavigateButton';
+export SlideTransition from './SlideTransition/SlideTransition';

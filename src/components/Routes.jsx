@@ -17,7 +17,7 @@ const Routes = (props) => (
             <CSSTransitionGroup
               transitionName="example"
               transitionEnterTimeout={500}
-              transitionLeaveTimeout={300}
+              transitionLeaveTimeout={500}
               >
               {match && route.component}
             </CSSTransitionGroup>

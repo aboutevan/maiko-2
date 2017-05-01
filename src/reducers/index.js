@@ -3,6 +3,7 @@ import { routerReducer } from 'react-router-redux';
 import { counterContainerReducer } from 'container/counterContainer/index';
 import { fetchTumblr } from 'container/TumblrContainer/reducers';
 import isLoading from 'container/LoadingContainer/reducers';
+import slideTransition from 'container/SlideTransitionContainer/reducers';
 import { combineReducers } from 'redux';
 
 // const navOverlayReducer = (state = false, action) => {
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
   counterContainer: counterContainerReducer,
   TumblrContainer: fetchTumblr,
   isLoading,
+  slideTransition,
   router: routerReducer,
 });
 

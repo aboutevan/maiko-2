@@ -46,7 +46,6 @@ class TumblrContainer extends Component {
        this.state.images.push(data)
       ),
     );
-    console.log('Rendering Images');
     return (
       this.state.images.map((data, i) => (
         <img className="fuck" key={`data.post_url${i}`} alt="" src={data.photos[0].alt_sizes[1].url} />
@@ -57,7 +56,7 @@ class TumblrContainer extends Component {
   render() {
     if (!this.props.tumblr) {
       return (
-        <h1>LoadingComponent</h1>
+        <LoadingContainer />
       );
     }
     return (
