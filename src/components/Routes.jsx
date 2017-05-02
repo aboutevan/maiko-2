@@ -7,7 +7,6 @@ import { LayoutMain } from 'layout';
 const Routes = () => (
   <div>
     <LayoutMain>
-
       {RoutesConfig.map(route => (
         <Route exact path={route.path} key={route.path}>
           {({ match }) => (

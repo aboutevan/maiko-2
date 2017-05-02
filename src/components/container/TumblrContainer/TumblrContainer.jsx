@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { TumblrImage } from 'presentation';
+import { TumblrGrid } from 'presentation';
 import { LoadingContainer } from 'container';
 import { fetchTumblr } from './actions';
 
@@ -54,7 +54,7 @@ class TumblrContainer extends Component {
     this.pushImagesToLocalStorage();
     return (
       <div>
-        <TumblrImage images={this.state.images} />
+        <TumblrGrid images={this.state.images} />
         <LoadingContainer />
         <button onClick={this.handleClick} role="button">Click Me</button>
       </div>
