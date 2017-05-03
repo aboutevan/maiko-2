@@ -5,7 +5,7 @@ const TumblrGrid = ({ images }) => {
   function renderImages() {
     return (
       images.map(data => (
-        <div key={data.photos[0].alt_sizes[1].url} className="tumblr-grid__image">
+        <div key={data.photos[0].alt_sizes[1].url} className="tumblr-grid__image" style={{backgroundImage: `url(${data.photos[0].alt_sizes[1].url})`}}>
           <img alt=""  src={data.photos[0].alt_sizes[1].url} />
         </div>
       ))
@@ -22,15 +22,13 @@ const TumblrGrid = ({ images }) => {
       options={{
         itemSelector: '.tumblr-grid__image',
         percentPosition: true,
-        gutter: 10
+        gutter: 0
       }}
       onImagesLoaded={handleImagesLoaded}
       disableImagesLoaded={false}
       updateOnEachImageLoad={true}
     >
-      <div className="tumblr-grid__inner">
-        { renderImages() }
-      </div>
+      { renderImages() }
     </Masonry>
   );
 };

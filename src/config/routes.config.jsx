@@ -19,7 +19,7 @@ export default [
     childRoutes: {},
   },
   {
-    name: 'studioShots',
+    name: 'studio-shots',
     path: '/studio-shots',
     visibleInMenu: true,
     menuTitle: 'Studio Shots',
