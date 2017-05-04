@@ -1928,6 +1928,10 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
+disable-scroll@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/disable-scroll/-/disable-scroll-0.3.0.tgz#486d309ec9873edb18aec7891c5576bf8b506c59"
+
 doctrine@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.1.0.tgz#1c36612937cf7d1596b983e9c5d0c6233eeaa3cf"

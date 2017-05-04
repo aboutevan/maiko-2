@@ -1,6 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { RoutesConfig } from 'config';
+
+const isActive = (match, location) => {
+  if(!match) {
+    return false;
+  }
+  if(match.path === location.pathname) {
+    return true;
+  }
+}
 
 const NavLinks = props => (
   <div className="nav-links">
@@ -8,9 +17,13 @@ const NavLinks = props => (
       {
         RoutesConfig.map(item => (
           <li className={`nav-links__item nav-links__item--${item.name}`} key={item.path}>
-            <Link onClick={props.handleClick} to={item.path}>
+            <NavLink
+              onClick={props.handleClick}
+              isActive={isActive}
+              to={item.path}
+            >
               <p>{item.menuTitle}</p>
-            </Link>
+            </NavLink>
           </li>
         ))
       }

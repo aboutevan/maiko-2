@@ -7,6 +7,18 @@
   &__item
     position: fixed
     display: inline-block
+    opacity: 0.85
+
+    &--home
+      top: 15px
+      left: 50%
+      transform: translateX(-50%)
+
+      @include breakpoint(large)
+        top: 30px
+
+      .active
+        display: none
 
     &--about
       top: 50%
@@ -23,3 +35,4 @@
 
     p
       margin-bottom: 0
+      letter-spacing: 3px

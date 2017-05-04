@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as disableScroll from 'disable-scroll';
 import 'TweenMax';
 
 class SlideTransition extends Component {
@@ -24,14 +25,14 @@ class SlideTransition extends Component {
     }, {
       left: '100vw',
       ease: SlowMo.ease.config(0.2, 0.5, false),
-      onStart: () => { document.body.style.overflow = 'hidden'},
+      onStart: () => { disableScroll.on(); },
     });
     TweenMax.fromTo(this.component.children, 1.3, {
       x: innerOffset,
     }, {
       x: `-${innerOffset}`,
       ease: SlowMo.ease.config(0.2, 0.5, false),
-      onComplete: () => { document.body.style.overflow = 'visible'},
+      onComplete: () => { disableScroll.off(); },
     });
   }
 

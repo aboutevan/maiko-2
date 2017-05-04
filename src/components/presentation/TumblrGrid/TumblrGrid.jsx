@@ -11,11 +11,6 @@ const TumblrGrid = ({ images }) => {
       ))
     );
   }
-
-  function handleImagesLoaded() {
-    console.log('images loaded')
-  }
-
   return (
     <Masonry
       className='tumblr-grid'
@@ -24,9 +19,6 @@ const TumblrGrid = ({ images }) => {
         percentPosition: true,
         gutter: 0
       }}
-      onImagesLoaded={handleImagesLoaded}
-      disableImagesLoaded={false}
-      updateOnEachImageLoad={true}
     >
       { renderImages() }
     </Masonry>
