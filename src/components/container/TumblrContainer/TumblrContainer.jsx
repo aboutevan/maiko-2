@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { debounce } from 'lodash';
 import { TumblrGrid } from 'presentation';
-import { LoadingContainer } from 'container';
 import { fetchTumblr } from './actions';
 
 class TumblrContainer extends Component {
@@ -23,8 +22,10 @@ class TumblrContainer extends Component {
     this.state = {
       images: [],
     };
+  }
 
-    this.handleClick = this.handleClick.bind(this);
+  componentWillMount() {
+    this.state.images = [];
   }
 
   componentDidMount() {
@@ -34,21 +35,14 @@ class TumblrContainer extends Component {
 
     window.addEventListener('scroll', () => {
       debounced();
-    })
+    });
   }
 
   infiniteScroll() {
-    if (window.scrollY + window.innerHeight === document.body.clientHeight ) {
+    if (window.scrollY + window.innerHeight === document.body.clientHeight) {
       if (this.state.images.length < this.props.tumblr.total_posts) {
         this.props.fetchTumblr(3, this.state.images.length);
       }
-    }
-  }
-
-  handleClick(event) {
-    event.preventDefault();
-    if (this.state.images.length < this.props.tumblr.total_posts) {
-      this.props.fetchTumblr(3, this.state.images.length);
     }
   }
 
@@ -60,17 +54,12 @@ class TumblrContainer extends Component {
   }
 
   render() {
-    if (!this.props.tumblr) {
-      return (
-        <LoadingContainer />
-      );
+    if(this.props.tumblr) {
+      this.pushImagesToLocalStorage();
     }
-    this.pushImagesToLocalStorage();
     return (
       <div>
-        <TumblrGrid images={this.state.images} />
-        <LoadingContainer />
-        <button onClick={this.handleClick} role="button">Click Me</button>
+        <TumblrGrid tumblrReady={this.props.tumblr} images={this.state.images} />
       </div>
     );
   }

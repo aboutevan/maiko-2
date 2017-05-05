@@ -7,3 +7,4 @@ export PortImage from './PortImage/PortImage';
 export ScrollToTop from './ScrollToTop/ScrollToTop';
 export SlideTransition from './SlideTransition/SlideTransition';
 export TumblrGrid from './TumblrGrid/TumblrGrid';
+export Loading from './Loading/Loading';

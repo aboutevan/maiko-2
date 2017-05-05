@@ -1,6 +1,13 @@
 .tumblr-grid
-  margin: 0 auto
-  text-align: center
+
+  &__wrapper
+    padding-bottom: 50px
+
+  &__initial-load
+    position: absolute
+    bottom: 20px
+    left: 50%
+    transform: translateX(-50%)
 
   &__image
     border: solid 3px #000
@@ -12,3 +19,10 @@
 
     @include breakpoint(large)
       width: calc(33.33333%)
+
+    img
+      width: 100%
+
+  &__loader
+    padding-top: 40px
+    text-align: center

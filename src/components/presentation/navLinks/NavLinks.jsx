@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { RoutesConfig } from 'config';
 
 const isActive = (match, location) => {
-  if(!match) {
+  if (!match) {
     return false;
   }
-  if(match.path === location.pathname) {
+  if (match.path === location.pathname) {
     return true;
   }
-}
+  return false;
+};
 
 const NavLinks = props => (
   <div className="nav-links">

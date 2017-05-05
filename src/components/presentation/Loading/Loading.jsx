@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Loading = props => (
-  <h1></h1>
-
+  <div className="loading">
+    <p className="loading__text">Loading...</p>
+  </div>
 );
+
+export default Loading;

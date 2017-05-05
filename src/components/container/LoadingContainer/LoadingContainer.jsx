@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Loading } from 'presentation';
 
 class LoadingContainer extends Component {
 
@@ -10,7 +11,7 @@ class LoadingContainer extends Component {
   render() {
     if (this.props.isLoading) {
       return (
-        <h1>LOADING</h1>
+        <Loading />
       );
     }
     return null;
