@@ -18,7 +18,7 @@ const TumblrGrid = ({ tumblrReady, images }) => {
       <div className="tumblr-grid__initial-load">
         <LoadingContainer />
       </div>
-    )
+    );
   }
   return (
     <div className="tumblr-grid__wrapper">
@@ -41,6 +41,7 @@ const TumblrGrid = ({ tumblrReady, images }) => {
 
 TumblrGrid.propTypes = {
   images: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  tumblrReady: React.PropTypes.bool.isRequired,
 };
 
 export default TumblrGrid;

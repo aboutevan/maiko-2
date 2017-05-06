@@ -6,40 +6,41 @@
   &__item
     display: inline-block
     position: fixed
-    // opacity: 0.85
 
     &--home
-      top: 15px
+      top: calc(3.75vw - 14px)
       left: 50%
       transform: translateX(-50%)
 
       @include breakpoint(large)
-        top: 30px
+        top: calc(2.5vw - 14px)
 
-      .active
-        display: none
+      a
+        transition-delay: 1s
+        opacity: 1
+
+        &.active
+          position: absolute
+          top: -299px
+          visibility: hidden
+          opacity: 0
 
     &--about
       top: 50%
-      left: -15px
+      left: calc(5% - 28px)
       transform: translateY(-50%) rotateZ(-90deg)
 
-      @include breakpoint(medium)
-        left: -5px
-
       @include breakpoint(large)
-        left: 2.5%
+        left: calc(5% - 42px)
 
     &--studio-shots
       top: 50%
-      right: -45px
+      right: calc(5% - 60px)
       transform: translateY(-50%) rotateZ(90deg)
 
-      @include breakpoint(medium)
-        right: -33px
-
       @include breakpoint(large)
-        right: 0
+        right: calc(5% - 72px)
+
     a
       color: #fff
 

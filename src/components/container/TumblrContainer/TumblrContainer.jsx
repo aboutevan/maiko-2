@@ -54,7 +54,7 @@ class TumblrContainer extends Component {
   }
 
   render() {
-    if(this.props.tumblr) {
+    if (this.props.tumblr) {
       this.pushImagesToLocalStorage();
     }
     return (
