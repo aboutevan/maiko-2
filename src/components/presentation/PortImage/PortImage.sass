@@ -7,29 +7,94 @@ $top-offset: 10vw
 
   @include breakpoint(medium)
     position: absolute
+    top: calc(50 * #{$top-offset})
     transition: transform 0.2s linear
+    z-index: 1
+
+    &:hover
+      z-index: 2
 
     &--1
-      width: 35%
+      top: 0
+      width: 45%
+
+    // &--1
+    //   width: 35%
 
     &--2
-      top: calc(2 * #{$top-offset})
-      margin-left: 60%
+      top: calc(3 * #{$top-offset})
+      left: 60%
       width: 40%
 
     &--3
-      top: calc(7 * #{$top-offset})
-      margin-left: 15%
-      width: 40%
+      top: calc(5.5 * #{$top-offset})
+      left: 35%
+      width: 30%
 
     &--4
       top: calc(9 * #{$top-offset})
-      margin-left: 45%
+      left: 8%
+      width: 45%
+
+    &--5
+      top: calc(11 * #{$top-offset})
+      left: 62%
+      width: 35%
+
+    &--6
+      top: calc(14 * #{$top-offset})
+      left: 18%
+      width: 35%
+
+    &--7
+      top: calc(20 * #{$top-offset})
+      left: 60%
+      width: 40%
+
+    &--8
+      top: calc(21 * #{$top-offset})
+      left: 41%
       width: 25%
+
+    &--9
+      top: calc(19 * #{$top-offset})
+      left: 8%
+      z-index: 0
+      width: 35%
+
+    &--10
+      top: calc(26 * #{$top-offset})
+      left: 0
+      width: 63%
+
+    &--11
+      top: calc(27 * #{$top-offset})
+      left: 68%
+      width: 23%
+
+    &--12
+      top: calc(30.5 * #{$top-offset})
+      left: 8%
+      width: 40%
+
+    &--13
+      top: calc(31.5 * #{$top-offset})
+      left: 53%
+      width: 45%
+
+    &--14
+      top: calc(34.5 * #{$top-offset})
+      left: 5%
+      width: 30%
+
+    &--15
+      top: calc(35.5 * #{$top-offset})
+      left: 45%
+      width: 15%
 
     &__inner
       transition: all 0.2s ease
-      opacity: 0.4
+      opacity: 0.6
       overflow: hidden
       will-change: transform, opacity
 
