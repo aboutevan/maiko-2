@@ -41,7 +41,7 @@ class TumblrContainer extends Component {
   infiniteScroll() {
     if (window.scrollY + window.innerHeight === document.body.clientHeight) {
       if (this.state.images.length < this.props.tumblr.total_posts) {
-        this.props.fetchTumblr(3, this.state.images.length);
+        this.props.fetchTumblr(20, this.state.images.length);
       }
     }
   }
