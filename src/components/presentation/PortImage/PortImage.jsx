@@ -10,14 +10,18 @@ if (process.env.NODE_ENV !== 'production') {
 class PortImage extends Component {
 
   componentDidMount() {
-    this.createScene();
+    if (window.innerWidth > 768) {
+      this.createScene();
+    }
   }
 
   componentWillUnmount() {
-    this.sceneController.destroy();
-    this.sceneController = null;
-    this.scene.destroy();
-    this.scene = null;
+    if (window.innerWidth > 768) {
+      this.sceneController.destroy();
+      this.sceneController = null;
+      this.scene.destroy();
+      this.scene = null;
+    }
   }
 
   createScene() {
