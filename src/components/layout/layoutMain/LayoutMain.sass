@@ -12,6 +12,28 @@
     @include breakpoint(large)
       padding-top: 5%
 
+  &__loader
+    display: flex
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    align-items: center
+    justify-content: center
+    z-index: 99
+    background: #000
+
+  &__load-bar-wrapper
+    background: #212121
+    width: 200px
+    height: 1px
+
+  &__load-bar
+    background: #fff
+    width: 0
+    height: 100%
+
 .example-enter
   opacity: 0
 

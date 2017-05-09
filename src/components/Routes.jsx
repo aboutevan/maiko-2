@@ -12,6 +12,7 @@ const Routes = () => (
           {({ match }) => (
             <CSSTransitionGroup
               transitionName="example"
+              component="div"
               transitionEnterTimeout={500}
               transitionLeaveTimeout={500}
             >
