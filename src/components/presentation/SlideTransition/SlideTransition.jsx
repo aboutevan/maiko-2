@@ -6,14 +6,10 @@ const images = require.context('img/transition', true, /\.(png|jpg)$/).keys();
 
 const imagesArr = [];
 
-images.map(image => {
-  const newImageVal = image.replace(/^[^\/]*\//g, '');
-  imagesArr.push(newImageVal);
+images.map((image) => {
+  const newImageVal = image.replace(/^[^/]*\//g, '');
+  return imagesArr.push(newImageVal);
 });
-
-  console.log(imagesArr);
-
-console.log(imagesArr[Math.floor(Math.random() * images.length)]);
 
 class SlideTransition extends Component {
 
@@ -21,8 +17,24 @@ class SlideTransition extends Component {
     behavior: React.PropTypes.string.isRequired,
   }
 
+  componentDidMount() {
+    // load images so no lag time
+    imagesArr.map((image) => {
+      const downloadingImage = new Image();
+      downloadingImage.onload = () => { this.image.src = downloadingImage.src; };
+      downloadingImage.src = `/assets/img/transition/${image}`;
+      return downloadingImage;
+    });
+  }
+
+  componentWillUpdate() {
+    // update image
+    this.image.src = `/assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]}`;
+  }
+
   componentDidUpdate() {
     const innerOffset = '1000vw';
+
     if (this.props.behavior !== 'animate') {
       TweenMax.set(this.component, {
         left: '-120vw',
@@ -57,7 +69,10 @@ class SlideTransition extends Component {
           ref={(component) => { this.component = component; }}
         >
           <div className="slide-transition__image">
-            <img src={`/assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]}`} alt="" />
+            <img
+              ref={(image) => { this.image = image; }}
+              alt=""
+            />
           </div>
         </div>
       </div>
