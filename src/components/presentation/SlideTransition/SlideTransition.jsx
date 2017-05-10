@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import * as disableScroll from 'disable-scroll';
 import 'TweenMax';
 
+const images = require.context('img/transition', true, /\.(png|jpg)$/).keys();
+
+const imagesArr = [];
+
+images.map(image => {
+  const newImageVal = image.replace(/^[^\/]*\//g, '');
+  imagesArr.push(newImageVal);
+});
+
+  console.log(imagesArr);
+
+console.log(imagesArr[Math.floor(Math.random() * images.length)]);
+
 class SlideTransition extends Component {
 
   static propTypes = {
@@ -44,7 +57,7 @@ class SlideTransition extends Component {
           ref={(component) => { this.component = component; }}
         >
           <div className="slide-transition__image">
-            <img src="/assets/img/skull.jpg" alt="" />
+            <img src={`/assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]}`} alt="" />
           </div>
         </div>
       </div>
