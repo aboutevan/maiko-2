@@ -1,5 +1,13 @@
 .page-home
   background: rgb(4, 4, 4)
+  padding-top: 110vh
+  overflow: hidden
+
+  @include breakpoint(medium)
+    height: calc(32.5 * 10vw + 40vw + 110vh)
+
+  @include breakpoint(xxlarge)
+    height: calc(32.5 * 10vw + 40vw + 30vh)
 
   &__hero
     position: fixed
@@ -7,11 +15,15 @@
     left: 0
     width: 100%
     height: 100vh
-    // overflow: hidden
 
   &__content
-    // @include grid-row()
     position: relative
-    // padding-right: 2rem
-    // padding-left: 2rem
-    top: 110vh
+    padding-bottom: 80px
+    height: 100%
+
+    @include breakpoint(medium)
+      padding-top: 110vh
+      padding-bottom: 0
+
+  &__gallery-wrap
+    height: 100%

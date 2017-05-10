@@ -8,9 +8,11 @@ const PageHome = () => (
       <HeroCanvas />
     </div>
     <div className="page-home__content">
-      {GalleryConfig.map((image, i) => (
-        <PortImage key={image.url} index={i + 1} url={image.url} title={image.title} />
+      <div className="page-home__gallery-wrap">
+        {GalleryConfig.map((image, i) => (
+          <PortImage key={image.url} index={i + 1} url={image.url} title={image.title} />
         ))}
+      </div>
     </div>
   </div>
 );

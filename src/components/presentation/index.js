@@ -8,3 +8,4 @@ export ScrollToTop from './ScrollToTop/ScrollToTop';
 export SlideTransition from './SlideTransition/SlideTransition';
 export TumblrGrid from './TumblrGrid/TumblrGrid';
 export Loading from './Loading/Loading';
+export Footer from './Footer/Footer';

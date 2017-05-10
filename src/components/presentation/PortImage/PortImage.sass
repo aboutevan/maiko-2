@@ -12,7 +12,7 @@ $top-offset: 10vw
     z-index: 1
 
     &:hover
-      z-index: 2
+      z-index: 4
 
     &--1
       top: 0
@@ -54,6 +54,7 @@ $top-offset: 10vw
     &--8
       top: calc(21 * #{$top-offset})
       left: 41%
+      z-index: 2
       width: 25%
 
     &--9
@@ -63,27 +64,27 @@ $top-offset: 10vw
       width: 35%
 
     &--10
-      top: calc(26 * #{$top-offset})
+      top: calc(25 * #{$top-offset})
       left: 0
       width: 63%
 
     &--11
-      top: calc(27 * #{$top-offset})
+      top: calc(26 * #{$top-offset})
       left: 68%
       width: 23%
 
     &--12
-      top: calc(30.5 * #{$top-offset})
+      top: calc(28.5 * #{$top-offset})
       left: 8%
       width: 40%
 
     &--13
-      top: calc(31.5 * #{$top-offset})
+      top: calc(29.5 * #{$top-offset})
       left: 53%
       width: 45%
 
     &--14
-      top: calc(34.5 * #{$top-offset})
+      top: calc(32.5 * #{$top-offset})
       left: 5%
       width: 30%
 
@@ -110,3 +111,79 @@ $top-offset: 10vw
       transition: transform 0.2s ease
       width: 100%
       will-change: transform
+
+  @include breakpoint(xxlarge)
+    &--1
+      top: calc(1 * #{$top-offset})
+      width: 45%
+
+    &--2
+      top: calc(3 * #{$top-offset})
+      left: 60%
+      width: 40%
+
+    &--3
+      top: calc(5.5 * #{$top-offset})
+      left: 35%
+      width: 30%
+
+    &--4
+      top: calc(9 * #{$top-offset})
+      left: 8%
+      width: 45%
+
+    &--5
+      top: calc(11 * #{$top-offset})
+      left: 62%
+      width: 35%
+
+    &--6
+      top: calc(12.7 * #{$top-offset})
+      left: 17%
+      width: 35%
+
+    &--7
+      top: calc(17 * #{$top-offset})
+      left: 60%
+      width: 40%
+
+    &--8
+      top: calc(18 * #{$top-offset})
+      left: 41%
+      z-index: 2
+      width: 25%
+
+    &--9
+      top: calc(16 * #{$top-offset})
+      left: 8%
+      width: 35%
+
+    &--10
+      top: calc(21.3 * #{$top-offset})
+      left: 0
+      width: 63%
+
+    &--11
+      top: calc(22 * #{$top-offset})
+      left: 68%
+      width: 23%
+
+    &--12
+      top: calc(25 * #{$top-offset})
+      left: 8%
+      width: 40%
+
+    &--13
+      top: calc(26.5 * #{$top-offset})
+      left: 53%
+      width: 45%
+
+    &--14
+      top: calc(28.5 * #{$top-offset})
+      left: 15%
+      width: 30%
+
+    &--15
+      top: calc(30.5 * #{$top-offset})
+      left: 45%
+      width: 15%

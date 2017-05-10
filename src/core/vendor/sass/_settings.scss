@@ -47,9 +47,10 @@ $header-height: 52px;
 // 1. Global
 // ---------
 
-$c1: #FC4349;
+$c1: #fff;
 $c2: #000;
 $c3: #D7DADB;
+$c4: #050010;
 
 $global-font-size: 100%;
 $global-width: 90%;
@@ -66,7 +67,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $c2;
+$body-background: $c4;
 $body-font-color: $white;
 $body-font-family: 'futura-pt', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;

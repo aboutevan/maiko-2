@@ -1,0 +1,16 @@
+.footer
+  position: relative
+  height: 40px
+
+  &__detail
+    position: absolute
+    right: 7.5%
+    bottom: 15px
+    transition: opacity 0.2s ease
+    opacity: 0.2
+
+    &:hover
+      opacity: 1
+
+    @include breakpoint(large)
+      right: 5%
