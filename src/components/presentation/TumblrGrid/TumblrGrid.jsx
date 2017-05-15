@@ -41,7 +41,11 @@ const TumblrGrid = ({ tumblrReady, images }) => {
 
 TumblrGrid.propTypes = {
   images: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  tumblrReady: React.PropTypes.bool.isRequired,
+  tumblrReady: React.PropTypes.objectOf(React.PropTypes.any),
+};
+
+TumblrGrid.defaultProps = {
+  tumblrReady: false,
 };
 
 export default TumblrGrid;

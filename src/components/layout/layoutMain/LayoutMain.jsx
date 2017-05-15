@@ -5,10 +5,11 @@ import TweenMax from 'TweenMax';
 
 class LayoutMain extends Component {
   componentDidMount() {
-    TweenMax.fromTo(this.loadBar, 2, {
+    TweenMax.fromTo(this.loadBar, 3.6, {
       width: '0%',
     }, {
       width: '100%',
+      ease:  Expo.easeInOut,
       onComplete: () => {
         TweenMax.to(this.loader, 0.5, {
           opacity: 0,

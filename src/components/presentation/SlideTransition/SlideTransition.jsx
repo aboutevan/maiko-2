@@ -19,9 +19,15 @@ class SlideTransition extends Component {
 
   componentDidMount() {
     // load images so no lag time
+    // imagesArr.map((image) => {
+    //   const downloadingImage = new Image();
+    //   downloadingImage.onload = () => { this.image.src = downloadingImage.src; };
+    //   downloadingImage.src = `/assets/img/transition/${image}`;
+    //   return downloadingImage;
+    // });
     imagesArr.map((image) => {
       const downloadingImage = new Image();
-      downloadingImage.onload = () => { this.image.src = downloadingImage.src; };
+      downloadingImage.onload = () => { this.imageWrap.style.backgroundImage = `url(${downloadingImage.src})`; };
       downloadingImage.src = `/assets/img/transition/${image}`;
       return downloadingImage;
     });
@@ -29,7 +35,10 @@ class SlideTransition extends Component {
 
   componentWillUpdate() {
     // update image
-    this.image.src = `/assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]}`;
+    // this.image.src = `
+    // /assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]}
+    // `;
+    this.imageWrap.style.backgroundImage = `url(/assets/img/transition/${imagesArr[Math.floor(Math.random() * images.length)]})`;
   }
 
   componentDidUpdate() {
@@ -68,10 +77,10 @@ class SlideTransition extends Component {
           className="slide-transition"
           ref={(component) => { this.component = component; }}
         >
-          <div className="slide-transition__image">
-            <img
-              ref={(image) => { this.image = image; }}
-              alt=""
+          <div className="slide-transition__image-outer">
+            <div
+              className="slide-transition__image"
+              ref={(image) => { this.imageWrap = image; }}
             />
           </div>
         </div>

@@ -1,12 +1,12 @@
 .slide-transition
   display: flex
-  position: absolute
+  position: fixed
   top: 0
   left: -120vw
   align-items: center
   justify-content: center
   z-index: 9999
-  background: #020006
+  background: $c2
   width: 120vw
   height: 100vh
   overflow: hidden
@@ -17,7 +17,34 @@
     height: 100vh
     overflow: hidden
 
-  &__image
-    opacity: 0.8
-    max-width: 400px
+  &__image-outer
+    position: relative
+    background: rgba(#fff, 0.7)
+    width: 100%
+    max-width: 150px
+    height: 150px
+    clip-path: polygon(0% 87%, 50% 0%, 50% 0%, 100% 87%)
 
+    @include breakpoint(large)
+      max-width: 300px
+      height: 300px
+
+  &__image
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background-position: center
+    background-size: cover
+    width: 97%
+    height: 97%
+    overflow: hidden
+    clip-path: polygon(0% 87%, 50% 0%, 50% 0%, 100% 87%)
+
+    // img
+    //   position: absolute
+    //   top: 50%
+    //   left: 50%
+    //   transform: translate(-50%, -50%)
+    //   width: 180%
+    //   margin-bottom: 76px
