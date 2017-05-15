@@ -59,14 +59,14 @@ class SlideTransition extends Component {
     }, {
       left: '100vw',
       ease: SlowMo.ease.config(0.2, 0.5, false),
-      onStart: () => { disableScroll.on(); },
+      // onStart: () => { disableScroll.on(); },
     });
     TweenMax.fromTo(this.component.children, 1.3, {
       x: innerOffset,
     }, {
       x: `-${innerOffset}`,
       ease: SlowMo.ease.config(0.2, 0.5, false),
-      onComplete: () => { disableScroll.off(); },
+      // onComplete: () => { disableScroll.off(); },
     });
   }
 
