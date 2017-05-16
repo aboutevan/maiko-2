@@ -449,8 +449,10 @@ export default class HeroCanvas extends Component {
     if (this.scrollPos) {
       if (this.scrollPos < 100) {
         this.layerAll.alpha = 1;
+        this.downArrow.style.opacity = 1;
       } else {
         this.layerAll.alpha = (600 - this.scrollPos) / 600;
+        this.downArrow.style.opacity = (300 - this.scrollPos) / 300;
       }
     }
 
@@ -478,7 +480,14 @@ export default class HeroCanvas extends Component {
       <div
         className="hero-canvas"
         ref={(component) => { this.component = component; }}
-      />
+      >
+        <div
+          className="page-home__scroll-down"
+          ref={(downArrow) => { this.downArrow = downArrow; }}
+        >
+          <img src="/assets/img/down-arrow.png" alt="scroll down" />
+        </div>
+      </div>
     );
   }
 
