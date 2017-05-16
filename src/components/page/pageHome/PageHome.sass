@@ -17,10 +17,14 @@
 
   &__scroll-down
     position: absolute
-    bottom: 20px
+    top: 86vh
     left: 50%
     transform: translateX(-50%)
     z-index: 10
+
+    @include breakpoint(large)
+      top: unset
+      bottom: 30px
 
   &__content
     position: relative
