@@ -10,7 +10,7 @@ export function tumblrSuccess(data) {
   };
 }
 
-export function fetchTumblr(limit = 20, offset) {
+export function fetchTumblr(limit = 12, offset) {
   return (dispatch) => {
     dispatch(isLoading());
     // axios.defaults.withCredentials = false;
