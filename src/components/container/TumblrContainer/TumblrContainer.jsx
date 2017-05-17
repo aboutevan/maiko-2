@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { debounce } from 'lodash';
+import { throttle } from 'lodash';
 import { TumblrGrid } from 'presentation';
 import { fetchTumblr } from './actions';
 
@@ -29,19 +29,24 @@ class TumblrContainer extends Component {
   }
 
   componentDidMount() {
-    const debounced = debounce(this.infiniteScroll.bind(this), 600);
+    const throttled = throttle(this.infiniteScroll.bind(this), 150);
+    this.fetching = false;
     this.state.images = [];
     this.props.fetchTumblr();
 
     window.addEventListener('scroll', () => {
-      debounced();
+      throttled();
     });
   }
 
   infiniteScroll() {
-    if (window.scrollY + window.innerHeight === document.body.clientHeight) {
+    if ((window.scrollY + window.innerHeight > document.body.clientHeight - 600) && !this.fetching) {
       if (this.state.images.length < this.props.tumblr.total_posts) {
-        this.props.fetchTumblr(12, this.state.images.length);
+        this.fetching = true;
+        this.props.fetchTumblr(10, this.state.images.length);
+        setTimeout(() => {
+          this.fetching = false;
+        }, 500);
       }
     }
   }

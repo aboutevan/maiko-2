@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as disableScroll from 'disable-scroll';
+// import * as disableScroll from 'disable-scroll';
 import 'TweenMax';
 
 const images = require.context('img/transition', true, /\.(png|jpg)$/).keys();

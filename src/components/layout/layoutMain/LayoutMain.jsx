@@ -9,7 +9,7 @@ class LayoutMain extends Component {
       width: '0%',
     }, {
       width: '100%',
-      ease:  Expo.easeInOut,
+      ease: Expo.easeInOut,
       onComplete: () => {
         TweenMax.to(this.loader, 0.5, {
           opacity: 0,

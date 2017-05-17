@@ -1,7 +1,7 @@
 // import axios from 'axios';
+import fetchJsonp from 'fetch-jsonp';
 import { FETCH_TUMBLR, ROOT_URL } from './constants';
 import isLoading from '../LoadingContainer/actions';
-import fetchJsonp from 'fetch-jsonp';
 
 export function tumblrSuccess(data) {
   return {
@@ -10,7 +10,7 @@ export function tumblrSuccess(data) {
   };
 }
 
-export function fetchTumblr(limit = 12, offset) {
+export function fetchTumblr(limit = 10, offset) {
   return (dispatch) => {
     dispatch(isLoading());
     // axios.defaults.withCredentials = false;
@@ -20,9 +20,9 @@ export function fetchTumblr(limit = 12, offset) {
     // }
 
     fetchJsonp(`${ROOT_URL}&limit=${limit}&offset=${offset}`)
-      .then((response) => {
-        return response.json();
-      })
+      .then(response => (
+        response.json()
+      ))
       .then((res) => {
         dispatch(tumblrSuccess(res));
         return res;
