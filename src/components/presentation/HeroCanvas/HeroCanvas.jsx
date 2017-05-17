@@ -73,7 +73,6 @@ export default class HeroCanvas extends Component {
       alpha: 1,
     };
 
-
     this.component.appendChild(this.renderer.view);
 
     this.addContainersToStage();
@@ -436,7 +435,13 @@ export default class HeroCanvas extends Component {
       // this.settings.alpha += 0.05
     }
 
-    if (this.settings.alpha >= 1) {
+    if (this.downArrow) {
+      this.downArrow.style.opacity = 1;
+    }
+
+    // this.layerAll.alpha = 1;
+
+    if (this.settings.alpha >= 1.25) {
       setTimeout(() => {
         this.decrease = true;
       }, 1000);
@@ -446,24 +451,32 @@ export default class HeroCanvas extends Component {
       }, 2000);
     }
 
-    if (this.scrollPos) {
-      if (this.scrollPos < 100) {
-        this.layerAll.alpha = 1;
-        this.downArrow.style.opacity = 1;
-      } else {
-        this.layerAll.alpha = (600 - this.scrollPos) / 600;
-        this.downArrow.style.opacity = (300 - this.scrollPos) / 300;
-      }
-    }
-
     if (this.decrease) {
       this.settings.alpha -= Math.random() * 0.003;
     } else {
       this.settings.alpha += Math.random() * 0.0025;
     }
 
-    this.layerRight.alpha = this.settings.alpha;
-    this.layerLeft.alpha = this.settings.alpha;
+    this.layerAll.alpha = this.settings.alpha;
+
+    if (this.scrollPos) {
+      if (this.scrollPos < 100) {
+        this.layerAll.alpha = this.settings.alpha;
+
+        if (this.downArrow) {
+          this.downArrow.style.opacity = 1;
+        }
+      } else {
+        this.layerAll.alpha = (600 - this.scrollPos) / 600;
+
+        if (this.downArrow) {
+          this.downArrow.style.opacity = (300 - this.scrollPos) / 300;
+        }
+      }
+    }
+
+    // this.layerRight.alpha = this.settings.alpha;
+    // this.layerLeft.alpha = this.settings.alpha;
 
     if (this.mouseX) {
       this.moveSprites();
