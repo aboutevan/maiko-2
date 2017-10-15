@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { scaleSpriteToCanvas, spritePaths, positionSprite, spriteOnMouseMove } from 'core/js/pixi.utils';
-import TweenMax from 'TweenMax';
 
 // import * as PIXI from 'pixi.js';
 import {  // eslint-disable-line import/no-extraneous-dependencies
