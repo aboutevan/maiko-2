@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { scaleSpriteToCanvas, spritePaths, positionSprite, spriteOnMouseMove } from 'core/js/pixi.utils';
+import TweenMax from 'TweenMax';
+
 // import * as PIXI from 'pixi.js';
 import {  // eslint-disable-line import/no-extraneous-dependencies
   Container,
@@ -158,6 +160,18 @@ export default class HeroCanvas extends Component {
       positionSprite([this.layerRightChildren[14], this.layerRightChildren[15]], window.innerWidth * 0.31, window.innerHeight * 0.485, 0.4);
     }
     /*eslint-enable*/
+  }
+
+  loadProgressHandler(loader, resource) {
+    if(this.loader) {
+      this.loadBar.style.width = loader.progress + '%';
+      if (loader.progress >= 100) {
+        this.loader.style.opacity = 0;
+        setTimeout(() => {
+          this.loader.remove();
+        }, 400);
+      }
+    }
   }
 
   createAndAddSprites() {
@@ -411,6 +425,7 @@ export default class HeroCanvas extends Component {
   initPixiLoader() {
     const setup = this.canvasSetup;
     loader
+      .on("progress", this.loadProgressHandler.bind(this))
       .load(setup.bind(this));
   }
 
@@ -490,15 +505,29 @@ export default class HeroCanvas extends Component {
 
   render() {
     return (
-      <div
-        className="hero-canvas"
-        ref={(component) => { this.component = component; }}
-      >
+      <div>
         <div
-          className="page-home__scroll-down"
-          ref={(downArrow) => { this.downArrow = downArrow; }}
+          className="layout-main__loader"
+          ref={(loader) => { this.loader = loader; }}
         >
-          <img src="/assets/img/down-arrow.png" alt="scroll down" />
+          <p>Loading...</p>
+          <div className="layout-main__load-bar-wrapper">
+            <div
+              ref={(loadBar) => { this.loadBar = loadBar; }}
+              className="layout-main__load-bar"
+            />
+          </div>
+        </div>
+        <div
+          className="hero-canvas"
+          ref={(component) => { this.component = component; }}
+        >
+          <div
+            className="page-home__scroll-down"
+            ref={(downArrow) => { this.downArrow = downArrow; }}
+          >
+            <img src="/assets/img/down-arrow.png" alt="scroll down" />
+          </div>
         </div>
       </div>
     );
